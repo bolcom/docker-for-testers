@@ -1,0 +1,39 @@
+= Lab 3: Second In-Depth Lab
+**You can state prerequisites below:**
+
+IMPORTANT: You must have Ant installed for this lab.
+See <<install-ant>> on how to install Ant.
+
+**Please state where the base project of the third lab can be found and what it does.** +
+In `labs/03-second-in-depth-lab` you can find the lab.
+
+
+== Exercise 1
+
+**Please explain the goal of exercise 1 here.**
+
+1. Implement a `run` task,
+which executes the jar-file that's created by the `package` task.
++
+TIP: Make it as easy as possible for the user to use +
+     (yes, you are a user too!)
+
+2. Run the application with the `run` task,
+so it prints the following text to the screen:
++
+.Application output
+----
+Hello World!
+----
+
+NOTE: Ant wraps the application output in its own output
+
+== Exercise 2
+
+**And possibly add a second exercise here.**
+
+== Resources
+
+**Again, this would be the place to link to resources that can help people solve the exercises, preferably from the official documentation pages so people learn to read the docs.**
+
+* http://ant.apache.org/manual/

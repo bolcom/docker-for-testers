@@ -1,0 +1,169 @@
+= How we do it @bol.com
+:imagesdir: ./images
+
+**Since we are all working at bol.com it is good to take a moment and think about how your training is relevant for bol.com.** +
+**At bol.com, how do we deal with the concepts and problems that lie at the base of this training?
+Do we use the techniques you discussed or not? Or maybe not yet? Do we also use alternative techniques here?
+This would be the place to explain them briefly and link to their documentation.**
+
+**See the example below:**
+
+Until now, everything you learned was general knowledge,
+knowledge that you can apply outside bol.com without change.
+But inside bol.com (and each company for that matter) there
+are some standards,
+some defaults that we use.
+Let's get into that now.
+
+== Internal Maven repository
+
+Inside bol.com we have a Company Repository Manager,
+two in fact.
+Both are instances of https://www.jfrog.com/artifactory/[Artifactory],
+but as a end-user this doesn't matter to you.
+
+Two Company Repository Managers? Yes, namely:
+
+1. http://artifactory.dev.bol.com +
+   This is the _dev_ artifactory.
+   This one is for all packages that you can reuse,
+   eg. bol.com libraries, drivers, APIs,
+   but also packages from the major public repository managers
+   are proxied (Maven Central, JCenter).
+2. http://artifactory.internal.adm.bol.com +
+   This is the _adm_ artifactory.
+   This one is for all packages that are deployed to environments,
+   including production.
+   eg. all bol.com applications.
+   This artifactory has _no_ connection to the internet,
+   does _not_ proxy any remote repositories,
+   and it _cannot_ be used to fetch dependencies for your builds.
+
+Meaning,
+whenever you build a project,
+you do that against the _dev_ artifactory. +
+Whenever you publish a reusable package,
+you publish it to the _dev_ artifactory. +
+And whenever you publish a deployable application,
+you publish it to the _adm_ artifactory.
+
+== Bol.com Gradle distribution
+
+Since 2013,
+Gradle has been the build automation tool of choice,
+chosen by the Java Guild.
+Because of this,
+Gradle has great support from the build infrastructure.
+Luckily Gradle also helps greatly in this regards.
+For example with the
+https://docs.gradle.org/current/userguide/gradle_wrapper.html[The Gradle Wrapper].
+
+As bol.com, we have our own Gradle distribution,
+which can be configured with the Gradle Wrapper.
+
+The bol.com Gradle distribution provides
+the _dev_ artifactory as default repository manager,
+and removes any custom configured repositories as only
+_dev_ artifactory is usable in the build infrastructure.
+
+1. To make use of the bol.com Gradle distribution,
+  configure the following in the `gradle/wrapper/gradle-wrapper.properties` file:
++
+[source%nowrap]
+----
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+distributionUrl=http\://artifactory.dev.bol.com/artifactory/software-release-local/com/bol/gradle/<gradleVersion>/bol.com-gradle-<gradleVersion>-<bolVersion>-all.zip
+----
+2. And replace the following values in the just created `gradle/wrapper/gradle-wrapper.properties` file:
+  * `<gradleVersion>` with the actual Gradle version
+  * `<bolVersion>` with the actual bol.com distribution version
+
+TIP: Find the latest bol.com Gradle distribution at:
+     http://artifactory.dev.bol.com/artifactory/webapp/#/artifacts/browse//search/quick/eyJzZWFyY2giOiJxdWljayIsInF1ZXJ5IjoiYm9sLmNvbS1ncmFkbGUtKiJ9
+
+The file version indicates the original Gradle version it is based on,
+eg. bol.com-gradle-2.9-1.11-all.zip indicates it is based on Gradle 2.9 and the bol.com Gradle distribution revision is 1.11,
+which means you should replace `<gradleVersion>` with `2.9` and `<bolVersion>` with `1.12`.
+
+== Continuous Integration/Delivery
+
+[quote,'Martin Fowler, ThoughtWorks Chief Scientist', 'http://www.martinfowler.com/articles/continuousIntegration.html']
+____
+*Continuous Integration* is a software development practice
+where members of a team integrate their work frequently,
+usually each person integrates at least daily
+- leading to multiple integrations per day.
+Each integration is verified by an automated build (including test)
+to detect integration errors as quickly as possible.
+Many teams find that this approach leads to significantly reduced
+integration problems and allows a team to develop cohesive software more rapidly.
+____
+
+[quote,,'https://www.thoughtworks.com/continuous-delivery']
+____
+*Continuous Delivery* is the natural extension of _Continuous Integration_:
+an approach in which teams ensure that every change to the system is releasable,
+and that we can release any version at the push of a button.
+Continuous Delivery aims to make releases boring,
+so we can deliver frequently and get fast feedback on what users care about.
+____
+
+These are a very short, very high-level,
+introduction into Continuous Integration (*CI*) and Continuous Delivery (*CD*).
+For more in-depth understanding of these practices,
+you can read through the <<appendix/reading-material.adoc#reading-material,Reading Material>>.
+
+To get your projects integrated,
+verified by an automated build including testing,
+published to the Company Repository Manager,
+and deployed to an testing environment,
+the TAXP Job Generator project is provided.
+
+[quote,,'https://confluence.tools.bol.com/display/scrumproces/Managing+your+own+pipeline+configuration+-+TAXP+job+generator[Managing your own pipeline configuration: TAXP job generator]']
+____
+The Test Acceptance XprPro (TAXP) job generator is the git repository containing
+configuration files that describe the project pipelines,
+from which Jenkins jobs and views are created.
+The configuration files consist of a minimal set of configurable values
+required to create the Jenkins jobs and views according
+to the bol.com TAXP jobs (aka pipelines) standard.
+____
+
+== Continuous Deployment
+
+[quote,'Martin Fowler, ThoughtWorks Chief Scientist', 'http://www.martinfowler.com/bliki/ContinuousDelivery.html']
+____
+_Continuous Delivery_ is sometimes confused with _Continuous Deployment_.
+*Continuous Deployment* means that every change goes through the pipeline
+and automatically gets put into production,
+resulting in many production deployments every day.
+Continuous Delivery just means that you are able to do frequent deployments
+but may choose not to do it,
+usually due to businesses preferring a slower rate of deployment.
+In order to do Continuous Deployment you must be doing Continuous Delivery.
+____
+
+[.text-center]
+image:mayfly-logo.png[width=500]
+
+[quote,,'http://docs.mayfly.bol.com/introduction.html']
+____
+With the number of scrum teams steadily growing,
+it becomes increasingly difficult to make a commitment on a sprint planning.
+The user stories in a sprint are all dependent on all the other user stories in the same sprint in all the teams.
+This makes progress unpredictable, since it can be blocked at any moment without warning.
+
+To address this problem, we introduced the Mayfly Ecosystem for Continuous Delivery.
+The Mayfly is an interesting insect with a fascinating lifecycle.
+According to Wikipedia, the adult Mayfly lives from a few minutes to a few days,
+which is about the same as a user story. Hence the name.
+____
+
+Continuously Deliver your user story to a user story environment,
+and when the user story is done, automatically deploy it to production.
+
+For the ins-and-outs of Mayfly,
+check the Mayfly documentation at: http://docs.mayfly.bol.com

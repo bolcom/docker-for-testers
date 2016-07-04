@@ -1,0 +1,18 @@
+[[reading-material]]
+[appendix]
+= Reading Material
+
+Want to know more about build automation and the related topics of
+Continuous Integration, Continuous Delivery and Continuous Deployment?
+Check out the following books:
+
+* Continuous Integration: Improving Software Quality and Reducing Risk +
+  https://www.bol.com/nl/p/continuous-integration/1001004002930991/
+* Continuous Delivery: Reliable Software Releases Through Build, Test, and Deployment Automation +
+  https://www.bol.com/nl/p/continuous-delivery/1001004007694286/
+* Release It!: Design and Deploy Production-ready Software +
+  https://www.bol.com/nl/p/release-it/1001004002997895/
+* The Pragmatic Programmer: From Journeyman to Master +
+  https://www.bol.com/nl/p/the-pragmatic-programmer/1001004000788751/
+* 97 Things Every Programmer Should Know: Collective Wisdom From The Experts +
+  https://www.bol.com/nl/p/o-reilly-97-things-every-programmer-should-know/1001004008241120/

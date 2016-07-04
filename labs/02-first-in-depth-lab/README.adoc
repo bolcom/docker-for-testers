@@ -1,0 +1,81 @@
+= Lab 2: First In-Depth Lab
+
+**You can state prerequisites below:**
+
+IMPORTANT: You must have Ant installed for this lab.
+See <<install-ant>> on how to install Ant.
+
+**Please state where the base project of the second lab can be found and what it does.** +
+In `labs/02-first-in-depth-lab` you can find the lab.
+
+Here you've got a simple "hello world" application,
+written in Java.
+It's the same application as in lab 1,
+but the source code has been moved into the `src` directory
+so we can create a `target` directory containing all the generated files
+(like compiled classes and distributable jar)
+
+.Project structure
+----
+.
+├── src
+│   └── com
+│       └── bol
+│           └── lab2
+│               └── HelloWorldApp.java
+├── build.xml
+└── README.adoc
+----
+
+An `build.xml` is already included.
+This is the standard configuration filename of an Ant build.
+And as the extension hints, it's an xml file.
+
+This build configuration does basically the same as you
+implemented in lab 1.
+Run the following to command to get an idea of the available tasks:
+
+.List available tasks (aka _targets_) in the Ant build
+----
+$ ant -p
+----
+
+Try each task of the build by running the command:
+----
+$ ant ${taskname}
+----
+
+NOTE: `${taskname}` in the filename should be the actual version.
+      `${..}` is just a way of saying "hey, this is a variable which
+      you should read as containing a taskname". +
+      eg. if a task `clean` exists, you could run `ant clean` as command.
+
+== Exercise 1
+
+**Please explain the goal of exercise 1 here.**
+
+1. Implement a `run` task,
+which executes the jar-file that's created by the `package` task.
++
+TIP: Make it as easy as possible for the user to use +
+     (yes, you are a user too!)
+
+2. Run the application with the `run` task,
+so it prints the following text to the screen:
++
+.Application output
+----
+Hello World!
+----
+
+NOTE: Ant wraps the application output in its own output
+
+== Exercise 2
+
+**And possibly add a second exercise here.**
+
+== Resources
+
+**Again, this would be the place to link to resources that can help people solve the exercises, preferably from the official documentation pages so people learn to read the docs.**
+
+* http://ant.apache.org/manual/

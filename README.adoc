@@ -1,0 +1,3 @@
+= Training template
+
+When preparing an internal training, you can clone this repository to help structure your training.

@@ -1,0 +1,53 @@
+= What we expect
+
+You probably have been asked by the Young Professional Training Block to give a training, cool!
+This document is here to make clear what our expectations are and to help you structure your training.
+Let's get going!
+
+== Git & Asciidoc
+Your training will likely be given once or twice a year by you, but it would be nice if people can take it whenever they want.
+Therefore we expect your training to be designed in such a way that people can complete it with self-study as well.
+Also it would be nice if it is easy to update your training.
+
+To facilitate these expectations, we would like you to create a git repository for your training under the `training-it' group with owner `training-it'.
+We expect you to use Asciidoc to create your training material as this is much easier to maintain than for instance PowerPoint.
+So we suggest you to start out with cloning this template to your training's git repo.
+
+== Concepts
+A training is not only about acquiring new skills, but also about comprehending the concepts that form the foundation for these skills.
+Our suggestion is that you divide your training into a set of concepts that can be addressed individually.
+
+TIP: When trying to list the relevant concepts for your training it might help to think about how people used to deal with problems without the technology your training is about.
+
+== Labs
+The labs are the place where you can teach people new skills. Ideally each concept section has one or more labs that teach people how this concept can be applied in practice.
+
+We would like you to design your labs in such a way that they are self-contained. Meaning if someone failed to complete lab1, he can take the base project for lab2 and start working on lab2.
+
+Since people should be able to work on your material by self-study, please provide your own solutions to the labs as well in the solutions directory.
+
+== Resources
+We expect your labs to be challenging, people should have to do some investigation in order to be able to complete the labs.
+The resources are the place where you can help your students out by linking to the most relevant documentation pages (preferably from the official docs).
+
+== Presentations
+
+
+== Issue tracker
+Since your training material is in a git repository you get an issue tracker for free! Here is how we suggest you use it:
+When you give your training it is likely that people will run into problems, misunderstand parts etc.
+You can help yourself by asking people to describe their problems in the issue tracker. Of course you can also add them yourself.
+
+== Pilot session
+You are likely a more experienced developer and therefore it is extremely useful to have some less experienced lab rats to try your material out on.
+We expect you to schedule a pilot session of your training with the people from the Young Professional Training Block. Ideally at least a few weeks before your first actual training session.
+The goal of this pilot session is to work through all the material and have a first feedback iteration so you can improve the quality of your training.
+
+TIP: Don't forget to use the issue tracker during this session! ;)
+
+== Reflection session
+After a pilot/training session you will need some time to select and discuss which issues from the issue tracker you actually want to solve.
+So we expect you to schedule a short meeting with the Young Professional Training Block to discuss the issues that were reported in the issue tracker.
+
+== Good luck!
+Good luck with developing your training. The rest of the document is a template you can use to fill out your own material.

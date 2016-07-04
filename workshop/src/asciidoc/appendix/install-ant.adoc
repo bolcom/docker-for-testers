@@ -1,0 +1,21 @@
+[[install-ant]]
+[appendix]
+= Install Ant
+
+Installing Ant is the simplest via http://sdkman.io[SDKman],
+a Software Development Kit Manager focussed on simplifying
+the installation and versioning of JVM based tools.
+
+TIP: See <<install-sdkman>> on how to install SDKman.
+
+With SDKman installed,
+installing Ant is as simple as executing:
+
+.Install latest Ant via SDKman
+----
+$ sdk install ant
+----
+
+If your OS is not supported by SDKman,
+you can follow the http://ant.apache.org/manual/index.html[Getting Ant]
+instructions from the http://ant.apache.org/manual/index.html[Ant documentation]
