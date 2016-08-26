@@ -1,3 +1,32 @@
-= Training template
+= Docker test training
 
-When preparing an internal training, you can clone this repository to help structure your training.
+=== Prerequisites
+* Hebben ze docker geinstalleerd? Zo nee, doen!
+
+=== Doel van de presentatie
+* Basisconcepten van Docker uitleggen
+* Simpele voorbeelden van containers
+* Workshop met als doel zelf webpagina met DB backend testen mbv Docker
+
+===== Vragen wat mensen nog meer zouden willen weten
+
+=== Wat is docker?
+* Docker vs VM: de verschillen (-> networking)
+* Docker distributie model (git-achtig)
+* Docker client/server
+* Container file systeem -> volumes
+
+=== Simpele voorbeelden:
+* docker run hello-world
+* docker run bash -> docker inspect, docker ps
+* docker run nginx -> in browser laten zien
+* docker run pgsql -> inloggen met pgadmin
+
+=== Labs
+* start nginx container met statische inhoud
+** volume mounten, aanpassen etc
+* nginx + selenium, klein testje (java omgeving?)
+* nginx + selenium + database, test dynamische pagina (docker link)
+
+=== Extra credit lab
+* Met docker build pgsql image aanpassen dat ie automatisch baseline data inlaadt, die weer gebruiken in de test
