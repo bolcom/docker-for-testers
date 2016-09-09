@@ -1,4 +1,4 @@
-= Introduction
+= Setup
 
 **What are the core concepts that people should know about before continuing with the rest of you training? This chapter would be the place to explain them briefly and possibly link to useful documentation or videos.**
 

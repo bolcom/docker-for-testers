@@ -30,3 +30,4 @@
 
 === Extra credit lab
 * Met docker build pgsql image aanpassen dat ie automatisch baseline data inlaadt, die weer gebruiken in de test
+

@@ -1,60 +1,17 @@
-// Remove this include for your own training
-= Training Template
-include::./expectations.adoc[leveloffset=+1]
-
-= Training Template
 :toclevels: 4
 :imagesdir: ./images
 
-**The purpose of this training template is to give you a document which will help you to structure your training. You can replace this text with a statement of the purpose of your training.**
+[.center]
+image:docker-logo.png[width=250,height=250]
 
-The purpose of this training is...
+= Docker for testers
 
-== How does this training work?
+**The purpose of this training is to give you a starting point in learning how to use Docker on your local machine. Getting to know Docker and the possibilities it opens up should give you ample material to imagine how you can apply Docker in your day to day work. The training is structured as such, parts theory, parts practice, with every step building on the previous step.**
 
-**Please explain the structure of your training, you can use the following as example:**
-
-The training organization is as following:
-
-- First a bit of theory explaining the concepts, principles,
-  practices and conventions.
-  Then a lab to bring the theory to practise
-- Each lab is self-contained,
-  but continues on the knowledge you gained in previous labs
-- Labs contain additional practical information which you
-  need to be able to do the lab exercises
-- Labs often contain references to resources.
-  These resources provide you with more in-depth information on how things work,
-  and you can most probably not do the exercises without reading through the
-  resources. So, use the resources!
-- Each lab explains where you can find the files for the lab.
-  All lab files are structured inside the `labs` directory
-- For each lab where you need to create/adjust files,
-  there is a sample solution available.
-  You can find the solutions in the `solutions` directory.
-
-WARNING: The solutions are provided to give you an idea how
-  you _could have_ implement the exercise. +
-  It's good to look at them,
-  _after_ you implemented the exercise yourself. +
-  Peeking at the solution _before_ you finished the exercise *is not recommended*. +
-  https://www.wanderlustworker.com/the-importance-of-failure-5-valuable-lessons-from-failing/[Learning is in the failing until you succeed]
-
-
-//== Introduction
-include::./2-introduction.adoc[leveloffset=+1]
+include::./2-setup.adoc[leveloffset=+1]
 
 //== First In-Depth Chapter
 include::./first-in-depth-chapter.adoc[leveloffset=+1]
 
-== Third In-Depth Chapter
-
-**Feel free to make as many chapters as you want.**
-
-//== How we do it @bol.com
-include::./at-bol.com.adoc[leveloffset=+1]
-
 //== Appendix
-include::./appendix/install-sdkman.adoc[leveloffset=+1]
-include::./appendix/install-ant.adoc[leveloffset=+1]
 include::./appendix/reading-material.adoc[leveloffset=+1]

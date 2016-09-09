@@ -1,0 +1,72 @@
+== Exercise 3: Stopping and removing containers
+After excercise 1 and 2 we have a number of containers running, which we will probably want to stop at some point in time (like now).
+
+First we have to figure out which containers are currently running with *docker ps*.
+
+=== Stopping containers
+.Listing all running containers
+----
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES
+a557431a5588        training/webapp     "python app.py"     31 minutes ago      Up 31 minutes       0.0.0.0:32773->5000/tcp   stoic_morse
+071cc075d2a0        training/webapp     "python app.py"     About an hour ago   Up About an hour    0.0.0.0:32772->5000/tcp   tender_wozniak
+6cb054041188        training/webapp     "python app.py"     About an hour ago   Up About an hour    0.0.0.0:32771->5000/tcp   silly_gates
+20e76d613347        training/webapp     "python app.py"     About an hour ago   Up About an hour    0.0.0.0:32770->5000/tcp   big_newton
+d0161594d122        training/webapp     "python app.py"     About an hour ago   Up About an hour    0.0.0.0:32769->5000/tcp   thirsty_saha
+8a8b6673cb81        training/webapp     "python app.py"     About an hour ago   Up About an hour    0.0.0.0:80->5000/tcp      gigantic_turing
+c44ddc3f13ba        training/webapp     "python app.py"     About an hour ago   Up About an hour    0.0.0.0:32768->5000/tcp   clever_fermi
+----
+
+You can stop a single container by running *docker stop* followed by its container id or name.
+
+.Stopping a single container
+----
+docker stop a557431a5588
+----
+
+You can specify multiple containers to stop all of them.
+
+.Stopping multiple containers
+----
+docker stop a557431a5588 clever_fermi
+----
+
+Of course, you might also want to stop all containers at once. We can do this by passing the output of the *ps* command to the *stop* command.
+
+.docker ps flags
+----
+docker ps -a -q
+----
+
+Run *docker ps --help* to find out what the -a and -q flags do. You might have noticed this is exactly the output we need to feed to the stop command
+
+.docker stop
+----
+docker stop $(docker ps -a -q)
+----
+
+If you now run *docker ps* no containers should be listed.
+
+=== Removing containers
+
+Now that we've stopped all the containers we can also remove them. Let's see how may stopped containers we have on our system by running *docker ps -a*.
+
+.Listing stopped containers
+----
+docker ps -a
+----
+
+You can remove a container by running *docker rm* followed by its container id or name.
+.Stopping a container
+----
+docker rm big_newton
+----
+
+Ofcourse we'd rather remove all containers at once
+
+.Removing all containers
+----
+docker rm $(docker ps -a -q)
+----
+
+//TODO: Add windows alternatives for 'all container' commands

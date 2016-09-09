@@ -1,0 +1,61 @@
+== Exercise 2: Environments variables and ports
+.Start a container running a webserver
+----
+docker run -d -P training/webapp python app.py
+----
+
+.List the details of the newest container
+----
+docker ps -l
+----
+
+.Find your container ID in the output
+----
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+d0161594d122        training/webapp     "python app.py"     3 seconds ago       Up 2 seconds        0.0.0.0:32769->5000/tcp   thirsty_saha
+----
+
+.Check out the website!
+----
+Go to http://localhost:32769 (the port number left of the -> in the docker ps command output)
+----
+The site should say "Hello world!".
+
+== Inspecting the logs
+After you've seen the "Hello world"-message you might want to inspect the logs of the docker container with the *logs* command.
+.Show the logs
+----
+docker logs d0161594d122
+----
+You should see GET commands on the root (/) of your webserver.
+
+== Passing environment variables to a container
+Most containers are configurable through environment variables that you can pass to the container when starting with the *-e flag*.
+Let's pass your name to the container, so it will be shown when you visit the website.
+
+.Start a container with an environment variable
+----
+docker run -d -P -e PROVIDER="Your name" training/webapp python app.py
+----
+
+Find out the port for this new container using the command below and visit it again to see your name displayed.
+
+.Find the mapped port for exposed port (5000) on the container
+----
+docker port <container id or name> 5000
+----
+
+== Run more containers
+.Execute the run command a couple of more times, followed by docker ps
+----
+docker run -d -P training/webapp python app.py
+docker ps
+----
+Notice that every container has a different port assigned, but all map to 5000 port of the container. This is handled by the -P parameter.
+
+.Check the documentation of the run command
+----
+docker run --help
+----
+
+Figure out how to start another training/webapp container mapping a specific port (80) to the exposed port of the container (5000)

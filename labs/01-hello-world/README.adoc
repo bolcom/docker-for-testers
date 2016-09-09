@@ -1,0 +1,21 @@
+== Exercise 1: Hello World!
+**In this first assignment we will focus on the basic Docker commands necessary to start, stop and inspect containers.** +
+
+Let's start with verifying that your Docker setup is correct and that you can issue commands.
+
+.Open a command prompt and run:
+----
+docker run hello-world
+----
+
+This should show you a "Hello from Docker!"-message and additional details on what happened under the hood.
+
+.Breaking down the command
+Let's have a closer look at what the command we've ran just now actually means.
+----
+<docker> <run> <hello-world>
+
+1: docker command itself
+2: the run instruction we've given to docker to start a container from an image (try running docker run --help)
+3: the name of the docker image you want to run (hello-world)
+----
