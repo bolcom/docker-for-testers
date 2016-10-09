@@ -49,7 +49,7 @@ If you now run *docker ps* no containers should be listed.
 
 === Removing containers
 
-Now that we've stopped all the containers we can also remove them. Let's see how may stopped containers we have on our system by running *docker ps -a*.
+Now that we've stopped all the containers we can also remove them. Let's see how many stopped containers we have on our system by running *docker ps -a*.
 
 .Listing stopped containers
 ----
@@ -57,6 +57,7 @@ docker ps -a
 ----
 
 You can remove a container by running *docker rm* followed by its container id or name.
+
 .Stopping a container
 ----
 docker rm big_newton
