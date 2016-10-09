@@ -25,7 +25,7 @@ Go to http://localhost:32769 (the port number left of the -> in the docker ps co
 ----
 The site should say "Hello world!".
 
-NOTE: If you are using Docker toolbox, you may have to go to http://<docker ip>:<port> instead. Run *docker-machine ip default* to find the IP.
+NOTE: If you are using Docker Toolbox, you may have to go to http://<docker ip>:<port> instead. Run *docker-machine ip default* to find the IP.
 
 === Inspecting the logs
 After you've seen the "Hello world"-message you might want to inspect the logs of the docker container with the *logs* command.
@@ -69,8 +69,4 @@ Of course, at times you may want to have more control over the ports you are run
 Figure out how to start another training/webapp container mapping a specific port (80) to the exposed port of the container (5000).
 Afterwards you should be able to see the Hello-message on http://localhost:80.
 
-.Start by checking the documentation of the run command
-----
-docker run --help
-----
-
+NOTE: Start by checking the documentation of the run command: *docker run --help*
