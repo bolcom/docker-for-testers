@@ -28,7 +28,7 @@ asciidoctorj { version = '1.5.4.1' }
 asciidoctor {
     sourceDir = rootDir
     sources {
-        ['labs', 'solutions', projectDir.name].each { dir ->
+        ['labs', projectDir.name].each { dir ->
             include "**/${dir}/**/*.adoc"
             excludePatterns.each { pattern ->
                 exclude "${dir}/${pattern}"
@@ -109,7 +109,7 @@ build.dependsOn asciidoctor
 
 clean {
     delete(fileTree(rootDir) {
-        ['labs', 'solutions', projectDir.name].each { dir ->
+        ['labs', projectDir.name].each { dir ->
             excludePatterns.each { pattern ->
                 include "${dir}/${pattern}"
             }

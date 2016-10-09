@@ -9,7 +9,7 @@ For the automated check to succeed we are assuming a number of things:
 . Postgres database is running and has data
 . Testnetapp is able to connect to the database
 . Selenium grid is running
-. Java environment too execute the tests  will be provided by a Docker container too
+. Java environment to execute the tests  will be provided by a Docker container too
 
 ==== Starting the selenium server
 Assuming you have the postgres and testnetapp image running, start the Selenium server by executing:
