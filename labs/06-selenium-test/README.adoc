@@ -22,8 +22,12 @@ In order to monitor test progress we can connect with https://www.realvnc.com/do
 The VNC server is listening on port 5900, the password is 'secret'.
 
 ==== Adjust SimpleTest
+Adjust the message you expect the page to display in the SimpleTest.java file inside the selenium-grid-docker directory.
 
+==== Execute your test
+We will use the official https://hub.docker.com/_/maven/[Maven] image (maven:3.3.9-jdk-8-alpine) to build and execute our test.
 
-docker run -it --rm --name my-maven-project --link selenium --link testnet -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3.3.9-jdk-8-alpine mvn clean install
+.Execute this command
+ docker run -it --rm --name my-maven-project --link selenium --link testnet -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3.3.9-jdk-8-alpine mvn clean install
 
 

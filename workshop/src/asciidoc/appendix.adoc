@@ -1,0 +1,10 @@
+= Appendix
+
+== Dealing with named containers
+You can start named containers by adding *"--name your_name"* to any docker run command. If you try to start a new instance of a container with that same name you will get an error message.
+
+ docker: Error response from daemon: Conflict. The name "/pg" is already in use by container. You have to remove (or rename) that container to be able to reuse that name..
+
+This is easily resolved by running
+
+ docker rm -f <container_name>

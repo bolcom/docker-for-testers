@@ -32,4 +32,4 @@ include::../../../labs/05-start-with-data/README.adoc[leveloffset=+1]
 include::../../../labs/06-selenium-test/README.adoc[leveloffset=+1]
 
 //== Appendix
-//include::./appendix/reading-material.adoc[leveloffset=+1]
+include::./appendix.adoc[leveloffset=+1]
