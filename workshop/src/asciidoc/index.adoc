@@ -29,6 +29,7 @@ include::../../../labs/02-docker-run-variables-and-ports/README.adoc[leveloffset
 include::../../../labs/03-stopping-containers/README.adoc[leveloffset=+1]
 include::../../../labs/04-building-images/README.adoc[leveloffset=+1]
 include::../../../labs/05-start-with-data/README.adoc[leveloffset=+1]
+include::../../../labs/06-selenium-test/README.adoc[leveloffset=+1]
 
 //== Appendix
 //include::./appendix/reading-material.adoc[leveloffset=+1]

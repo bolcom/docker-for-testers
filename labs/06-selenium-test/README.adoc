@@ -1,25 +1,29 @@
-== Running your database with data included
-*Having to insert the data everytime you start a container can become a hassle. In this exercise we will put the data inside the Postgres image, so that it will be available on startup.*
+== Checking whether the webpage is displayed correctly
+*Spinning up your own Selenium containers can be convenient if you want to test a site with a specific browser and don't want to bother with configuration of machines.*
 
-The https://hub.docker.com/_/postgres/[Postgres] image provides a convenient way to execute scripts on startup of your database. All we have to do is add a .sh script to the docker-entrypoint-initdb.d-folder as per the documentation of the image.
+In this exercise we will run our testnetapp and verify that the displayed page has the correct content, using a browser supplied by Selenium.
 
-==== Steps to prepare the database
-. Create the .sh script on your harddisk
-. Create a Dockerfile that
-.. Is build https://docs.docker.com/engine/reference/builder/#/from[from] postgres:9
-.. Adds the .sh file to the docker-entrypoint-initdb.d folder
-. Build the image, run it and link it with the testnetapp container
+=== Preparing the test environment
+For the automated check to succeed we are assuming a number of things:
 
+. Postgres database is running and has data
+. Testnetapp is able to connect to the database
+. Selenium grid is running
+. Java environment too execute the tests  will be provided by a Docker container too
 
-.The script to add to the Dockerfile
+==== Starting the selenium server
+Assuming you have the postgres and testnetapp image running, start the Selenium server by executing:
 ----
-#!/bin/bash
-set -e
-
-psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
-    CREATE DATABASE testnet;
-    \c testnet
-    CREATE TABLE kv (key varchar(100) PRIMARY KEY, value varchar(100));
-    INSERT INTO kv VALUES ('provider','postgres database');
-EOSQL
+docker run --name selenium -d --link testnet -p 4444:4444 -p 5900:5900 selenium/standalone-firefox-debug
 ----
+
+==== Connect with VNC
+In order to monitor test progress we can connect with https://www.realvnc.com/download/viewer/[VNC viewer] to the Selenium node after we've started it.
+The VNC server is listening on port 5900, the password is 'secret'.
+
+==== Adjust SimpleTest
+
+
+docker run -it --rm --name my-maven-project --link selenium --link testnet -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3.3.9-jdk-8-alpine mvn clean install
+
+
