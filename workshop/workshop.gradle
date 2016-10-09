@@ -87,13 +87,13 @@ asciidoctor.doLast {
         // and their html versions of the asciidoctor files
         // in the root of the docs
         from("$asciidoctorOutputDir/html5") {
-            ['labs', 'solutions'].each {
+            ['labs'].each {
                 include "${it}/**/*.html"
             }
             includeEmptyDirs false
         }
         from(rootDir) {
-            ['labs', 'solutions'].each { dir ->
+            ['labs', 'docker-images', 'selenium-grid-docker'].each { dir ->
                 include "${dir}/**"
                 excludePatterns.each { pattern ->
                     exclude "${dir}/${pattern}"
