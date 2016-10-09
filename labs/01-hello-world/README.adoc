@@ -1,6 +1,4 @@
-== Exercise 1: Hello World!
-**In this first assignment we will focus on the basic Docker commands necessary to start, stop and inspect containers.** +
-
+== Hello World!
 Let's start with verifying that your Docker setup is correct and that you can issue commands.
 
 .Open a command prompt and run:

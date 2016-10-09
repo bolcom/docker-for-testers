@@ -1,5 +1,5 @@
-== Exercise 3: Stopping and removing containers
-After excercise 1 and 2 we have a number of containers running, which we will probably want to stop at some point in time (like now).
+== Managing containers
+After exercise 1 and 2 we have a number of containers running, which we will probably want to stop at some point in time (like now).
 
 First we have to figure out which containers are currently running with *docker ps*.
 
@@ -41,8 +41,14 @@ docker ps -a -q
 Run *docker ps --help* to find out what the -a and -q flags do. You might have noticed this is exactly the output we need to feed to the stop command
 
 .docker stop
+Linux/Mac OS X
 ----
 docker stop $(docker ps -a -q)
+----
+
+Windows
+----
+FOR /f "tokens=*" %i IN ('docker ps -a -q') DO docker stop %i
 ----
 
 If you now run *docker ps* no containers should be listed.
@@ -63,11 +69,15 @@ You can remove a container by running *docker rm* followed by its container id o
 docker rm big_newton
 ----
 
-Ofcourse we'd rather remove all containers at once
+Of course, in this case we'd rather remove all containers at once
 
 .Removing all containers
+Linux/Mac OS X
 ----
 docker rm $(docker ps -a -q)
 ----
-
-//TODO: Add windows alternatives for 'all container' commands
+Windows
+----
+FOR /f "tokens=*" %i IN ('docker ps -a -q') DO docker rm %i
+----
+If you now list all stopped containers again, *docker ps -a*, no containers should be returned.This does not mean that the images are no longer available, as you can see by running *docker images*. We've only cleaned up containers, instances of the images available on your system.

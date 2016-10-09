@@ -1,4 +1,6 @@
-== Exercise 2: Environments variables and ports
+== Running Docker containers
+**This assignment focuses on the Docker commands necessary to start, stop and inspect containers.** +
+
 .Start a container running a webserver
 ----
 docker run -d -P training/webapp python app.py
@@ -21,7 +23,7 @@ Go to http://localhost:32769 (the port number left of the -> in the docker ps co
 ----
 The site should say "Hello world!".
 
-== Inspecting the logs
+=== Inspecting the logs
 After you've seen the "Hello world"-message you might want to inspect the logs of the docker container with the *logs* command.
 .Show the logs
 ----
@@ -29,7 +31,7 @@ docker logs d0161594d122
 ----
 You should see GET commands on the root (/) of your webserver.
 
-== Passing environment variables to a container
+=== Passing environment variables to a container
 Most containers are configurable through environment variables that you can pass to the container when starting with the *-e flag*.
 Let's pass your name to the container, so it will be shown when you visit the website.
 
@@ -45,17 +47,26 @@ Find out the port for this new container using the command below and visit it ag
 docker port <container id or name> 5000
 ----
 
-== Run more containers
+=== Run more containers
 .Execute the run command a couple of more times, followed by docker ps
 ----
 docker run -d -P training/webapp python app.py
 docker ps
 ----
-Notice that every container has a different port assigned, but all map to 5000 port of the container. This is handled by the -P parameter.
+Notice that every container has a different port assigned, but all map to 5000 port on the container. This is handled by the -P parameter.
 
-.Check the documentation of the run command
+----
+-P, --publish-all     Publish all exposed ports to random ports
+----
+
+
+Of course, at times you may want to have more control over the ports you are running on.
+
+Figure out how to start another training/webapp container mapping a specific port (80) to the exposed port of the container (5000).
+Afterwards you should be able to see the Hello-message on http://localhost:80.
+
+.Start by checking the documentation of the run command
 ----
 docker run --help
 ----
 
-Figure out how to start another training/webapp container mapping a specific port (80) to the exposed port of the container (5000)

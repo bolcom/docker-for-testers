@@ -6,12 +6,24 @@ image:docker-logo.png[width=250,height=250]
 
 = Docker for testers
 
-**The purpose of this training is to give you a starting point in learning how to use Docker on your local machine. Getting to know Docker and the possibilities it opens up should give you ample material to start applying Docker in your day to day work. The training is structured as such, parts theory, parts practice, with every step building on the previous step.**
+**The purpose of this training is to learn how to use Docker on your local machine.**
 
-include::./2-setup.adoc[leveloffset=+1]
+At the end of the day you will have learned:
 
-//== First In-Depth Chapter
-include::./first-in-depth-chapter.adoc[leveloffset=+1]
+* Starting and stopping of containers
+* Building your own images
+* Running your own test database with test data
+* Running your own Selenium Grid for web testing
+
+The training is structured as such: first theory, followed by practice, with every step building on the previous step.
+
+//INSTALLATION
+include::./installation.adoc[leveloffset=0]
+
+= Exercises
+include::../../../labs/01-hello-world/README.adoc[leveloffset=+1]
+include::../../../labs/02-docker-run-variables-and-ports/README.adoc[leveloffset=+1]
+include::../../../labs/03-stopping-containers/README.adoc[leveloffset=+1]
 
 //== Appendix
-include::./appendix/reading-material.adoc[leveloffset=+1]
+//include::./appendix/reading-material.adoc[leveloffset=+1]
