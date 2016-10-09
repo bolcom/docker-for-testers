@@ -35,10 +35,10 @@ In order to build a Docker image yourself you need a https://docs.docker.com/eng
 ==== Building the new image
 We now have to instruct Docker to pickup the Dockerfile and build it with the tag "testnetapp".
 
-.Build the new image with a name
+.Build the new image with a tag
  docker build -t testnetapp .
 
-NOTE: Make sure to have a command line open in docker-images/training-webapp-postgres
+NOTE: Make sure your working directory is docker-images/training-webapp-postgres
 
 ==== Starting the new image
 Before we start a container with the testnetapp image we first need to start a Postgres database that will store the message for us.

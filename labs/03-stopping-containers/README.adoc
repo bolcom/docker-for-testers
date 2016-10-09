@@ -7,15 +7,8 @@ First we have to figure out which containers are currently running with *docker 
 .Listing all running containers
 ----
 $ docker ps
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES
-a557431a5588        training/webapp     "python app.py"     31 minutes ago      Up 31 minutes       0.0.0.0:32773->5000/tcp   stoic_morse
-071cc075d2a0        training/webapp     "python app.py"     About an hour ago   Up About an hour    0.0.0.0:32772->5000/tcp   tender_wozniak
-6cb054041188        training/webapp     "python app.py"     About an hour ago   Up About an hour    0.0.0.0:32771->5000/tcp   silly_gates
-20e76d613347        training/webapp     "python app.py"     About an hour ago   Up About an hour    0.0.0.0:32770->5000/tcp   big_newton
-d0161594d122        training/webapp     "python app.py"     About an hour ago   Up About an hour    0.0.0.0:32769->5000/tcp   thirsty_saha
-8a8b6673cb81        training/webapp     "python app.py"     About an hour ago   Up About an hour    0.0.0.0:80->5000/tcp      gigantic_turing
-c44ddc3f13ba        training/webapp     "python app.py"     About an hour ago   Up About an hour    0.0.0.0:32768->5000/tcp   clever_fermi
 ----
+image:docker-ps-2.png[width=2000,height=200]
 
 You can stop a single container by running *docker stop* followed by its container id or name.
 
