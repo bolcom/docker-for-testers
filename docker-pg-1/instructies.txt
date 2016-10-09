@@ -3,7 +3,7 @@
 - Start de postgresql container:
     docker run --name pg -e POSTGRES_PASSWORD=testnet -d postgres
 - Maak een tabel aan en zet er een waarde in:
-    docker run -it --rm --link pg:pg postgres psql -h pg -U postgres
+      docker run -it --rm --link pg:pg postgres psql -h pg -U postgres
     password=testnet
     CREATE DATABASE testnet;
     \c testnet
