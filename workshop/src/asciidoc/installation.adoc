@@ -7,3 +7,9 @@ Follow these steps to setup Docker on your machine.
 * Follow the installation instructions
 
 After installation continue with Exercise 1 to verify that your setup is running correctly.
+
+== Troubleshooting installation
+NOTE: If you run Windows Home Edition and/or get a message about Hyper-V being disabled, you have to install https://www.docker.com/products/docker-toolbox[Docker Toolbox] instead because your version of Windows does not support the "Docker for Windows"-product.
+
+NOTE: If you encounter the message "VT-x/AMD-v has to be enabled", please enable Virtualisation in the BIOS of your system. This is required for running virtual machines.
+

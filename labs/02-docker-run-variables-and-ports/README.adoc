@@ -1,6 +1,8 @@
 == Running Docker containers
 **This assignment focuses on the Docker commands necessary to start, stop and inspect containers.** +
 
+We will use a Docker image published in the Docker Hub to start a small web server that serves a single "Hello World!"-page.
+
 .Start a container running a webserver
 ----
 docker run -d -P training/webapp python app.py
@@ -23,8 +25,11 @@ Go to http://localhost:32769 (the port number left of the -> in the docker ps co
 ----
 The site should say "Hello world!".
 
+NOTE: If you are using Docker toolbox, you may have to go to http://<docker ip>:<port> instead. Run *docker-machine ip default* to find the IP.
+
 === Inspecting the logs
 After you've seen the "Hello world"-message you might want to inspect the logs of the docker container with the *logs* command.
+
 .Show the logs
 ----
 docker logs d0161594d122
@@ -58,7 +63,6 @@ Notice that every container has a different port assigned, but all map to 5000 p
 ----
 -P, --publish-all     Publish all exposed ports to random ports
 ----
-
 
 Of course, at times you may want to have more control over the ports you are running on.
 

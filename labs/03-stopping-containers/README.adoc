@@ -41,12 +41,12 @@ docker ps -a -q
 Run *docker ps --help* to find out what the -a and -q flags do. You might have noticed this is exactly the output we need to feed to the stop command
 
 .docker stop
-Linux/Mac OS X
+Linux/Mac OS X/Windows (Cygwin)
 ----
 docker stop $(docker ps -a -q)
 ----
 
-Windows
+Windows (DOS Prompt)
 ----
 FOR /f "tokens=*" %i IN ('docker ps -a -q') DO docker stop %i
 ----
@@ -72,11 +72,11 @@ docker rm big_newton
 Of course, in this case we'd rather remove all containers at once
 
 .Removing all containers
-Linux/Mac OS X
+Linux/Mac OS X/Windows (Cygwin)
 ----
 docker rm $(docker ps -a -q)
 ----
-Windows
+Windows (DOS Prompt)
 ----
 FOR /f "tokens=*" %i IN ('docker ps -a -q') DO docker rm %i
 ----
