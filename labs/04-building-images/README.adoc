@@ -20,6 +20,7 @@ The following sections will discuss all these steps one-by-one.
 === Changes to the image
 In order to build a Docker image yourself you need a https://docs.docker.com/engine/reference/builder/[Dockerfile]. In this case we will supply you with the Dockerfile necessary to create the image. But you will have to run the build process yourself to make the image available to your Docker daemon.
 
+. Download the https://github.com/bolcom/docker-for-testers/archive/master.zip[workshop zip file] and unzip it on your local harddisk
 . Go to `docker-images/training-webapp-postgres` folder
 . Review the Dockerfile to understand what we are building
 
