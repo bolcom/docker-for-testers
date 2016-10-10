@@ -59,7 +59,6 @@ Because you may not have a Postgres database client installed we start another c
  docker run -it --rm --link pg:pg postgres psql -h pg -U postgres
 
 .Execute commands in the running database to prepare data
-
  CREATE DATABASE testnet;
  \c testnet
  CREATE TABLE kv (key varchar(100) PRIMARY KEY, value varchar(100));
