@@ -20,22 +20,24 @@ image:docker-ps.png[width=2000,height=74]
 ----
 Go to http://localhost:32769 (the port number left of the -> in the docker ps command output)
 ----
-The site should say "Hello world!".
+NOTE: If you are using Docker Toolbox, you may have to go to http://<docker ip>:<port> instead. Run *docker-machine ip default* to find the IP. Run *docker-machine ls* to find out the name of your Docker Machine.
 
-NOTE: If you are using Docker Toolbox, you may have to go to http://<docker ip>:<port> instead. Run *docker-machine ip default* to find the IP.
+The site should say "Hello world!".
 
 == Inspecting the logs
 After you've seen the "Hello world"-message you might want to inspect the logs of the docker container with the *logs* command.
 
 .Show the logs
 ----
-docker logs 23f00f1beda0
+docker logs <container id or name>
 ----
 You should see GET commands on the root (/) of your webserver.
 
 == Passing environment variables to a container
 Most containers are configurable through environment variables that you can pass to the container when starting with the *-e flag*.
-Let's pass your name to the container, so it will be shown when you visit the website.
+Let's pass your name to the application by using the environment variables of the container, so it will be shown when you visit the website.
+
+NOTE: Environment variables are a set of dynamic named values that can affect the way running processes will behave on a computer. They are part of the environment in which a process runs. https://en.wikipedia.org/wiki/Environment_variable[Wikipedia]
 
 .Start a container with an environment variable
 ----
@@ -46,7 +48,7 @@ Find out the port for this new container using the command below and visit it ag
 
 .Find the mapped port for exposed port (5000) on the container
 ----
-docker port <container id or name> 5000
+docker port <container id returned by previous docker run command> 5000
 ----
 
 == Run more containers

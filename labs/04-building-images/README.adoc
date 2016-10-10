@@ -23,10 +23,10 @@ In order to build a Docker image yourself you need a https://docs.docker.com/eng
 . Go to docker-images/training-webapp-postgres folder
 . Review the Dockerfile to understand what we are building
 
- FROM training/webapp
- RUN apt-get -y update && apt-get -y install libpq-dev python-dev
- RUN pip install pygresql
- ADD app.py /opt/webapp/app.py
+ [a] FROM training/webapp
+ [b] RUN apt-get -y update && apt-get -y install libpq-dev python-dev
+ [b] RUN pip install pygresql
+ [c] ADD app.py /opt/webapp/app.py
 
 .. We use the training/webapp image as a base-image
 .. We run 2 commands inside the container to add the Python dependencies
@@ -35,12 +35,14 @@ In order to build a Docker image yourself you need a https://docs.docker.com/eng
 === Building the new image
 We now have to instruct Docker to pickup the Dockerfile and build it with the tag "testnetapp".
 
+NOTE: Make sure your working directory is docker-images/training-webapp-postgres
+
 .Build the new image with a tag
  docker build -t testnetapp .
 
 NOTE: Make sure your working directory is docker-images/training-webapp-postgres
 
-=== Starting the new image
+==== Starting the new image
 Before we start a container with the testnetapp image we first need to start a Postgres database that will store the message for us.
 
 Luckily, we can use an off-the-shelve image provided by https://hub.docker.com/_/postgres/[Postgres].
