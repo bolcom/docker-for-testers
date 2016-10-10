@@ -22,12 +22,21 @@ In order to monitor test progress we can connect with https://www.realvnc.com/do
 The VNC server is listening on port 5900, the password is 'secret'.
 
 ==== Adjust SimpleTest
-Adjust the message you expect the page to display in the SimpleTest.java file inside the selenium-grid-docker directory.
+We've prepared a simple Java project to test whether the testnetapp displays the correct message.
+Adjust the message you added to the database in the SimpleTest.java file. This file can be found inside the selenium-grid-docker directory.
 
 ==== Execute your test
 We will use the official https://hub.docker.com/_/maven/[Maven] image (maven:3.3.9-jdk-8-alpine) to build and execute our test.
 
-.Execute this command
+This image provides a Java environment and Maven (a Java build tool) to execute the project. In order to make the project files, which are on your local machine available to the container we will mount the selenium-grid-docker directory as a volume for the container.
+
+NOTE: Make sure that your command prompt is in the selenium-grid-docker directory.
+
+.Execute this command to start the test
  docker run -it --rm --name my-maven-project --link selenium --link testnet -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3.3.9-jdk-8-alpine mvn clean install
 
+==== Considerations
+====
+* Why do we link to two containers, selenium & testnet, from the Maven container?
+* What are the implications of the -v flag in the command?
 
