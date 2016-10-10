@@ -6,7 +6,7 @@ Follow these steps to setup Docker on your machine.
 * Download the distributable for your system type
 * Follow the installation instructions
 
-After installation continue with Exercise 1 to verify that your setup is running correctly.
+After the installation is complete, continue with Exercise 1 to verify that your setup is running correctly.
 
 [NOTE]
 *Windows Home Edition* +
