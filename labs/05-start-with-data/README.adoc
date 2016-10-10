@@ -7,7 +7,7 @@ The https://hub.docker.com/_/postgres/[Postgres] image provides a convenient way
 . Create the .sh script on your harddisk
 . Create a Dockerfile that
 .. Is build https://docs.docker.com/engine/reference/builder/#/from[from] postgres:9
-.. Adds the .sh file to the docker-entrypoint-initdb.d folder
+.. https://docs.docker.com/engine/reference/builder/#/add[Adds] the .sh file to the docker-entrypoint-initdb.d folder in the container
 . Build the image, run it and link it with the testnetapp container
 
 
