@@ -8,17 +8,17 @@ image:docker-logo.png[width=250,height=250]
 
 **The purpose of this training is to learn how to use Docker on your local machine.**
 
-At the end of the day you will have learned:
+At the end of the day you will know how to:
 
-* Starting and stopping of containers
-* Building your own images
-* Running your own test database with test data
-* Running your own Selenium Grid for web testing
+* Start and stop containers
+* Build your own images
+* Run your own test database with test data
+* Run your own Selenium Grid for web testing
 
-The training is structured as such: first theory, followed by practice, with every step building on the previous step.
+The training is structured as follows: first theory, followed by practice, with every step building on the previous step.
 
 = Presentation slides
-You can find the slides of the presentation in https://docs.google.com/presentation/d/1EiW9Ou-5a-Do_MqCZrLvU_YMbDwxMbjzMMJmX1ubauE/[Google Drive]
+You can find the slides of the presentation on https://docs.google.com/presentation/d/1EiW9Ou-5a-Do_MqCZrLvU_YMbDwxMbjzMMJmX1ubauE/[Google Drive]
 
 = Installation
 include::./installation.adoc[leveloffset=+1]
