@@ -7,6 +7,6 @@ NOTE: You must have a recent version of the http://www.oracle.com/technetwork/ja
 
 The course material is written in http://asciidoctor.org/[Asciidoctor] and can be built using the following command:
 
- ./gradlew assemble
+ ./gradlew build
 
 This command will generate a zip file containing all the material in the `workshop/build/distributions` directory.
