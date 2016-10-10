@@ -40,8 +40,6 @@ NOTE: Make sure your working directory is docker-images/training-webapp-postgres
 .Build the new image with a tag
  docker build -t testnetapp .
 
-NOTE: Make sure your working directory is docker-images/training-webapp-postgres
-
 ==== Starting the new image
 Before we start a container with the testnetapp image we first need to start a Postgres database that will store the message for us.
 

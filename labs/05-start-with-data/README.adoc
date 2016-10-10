@@ -3,14 +3,18 @@
 
 The https://hub.docker.com/_/postgres/[Postgres] image provides a convenient way to execute scripts on startup of your database. All we have to do is add a .sh script to the docker-entrypoint-initdb.d-folder as per the documentation of the image.
 
+NOTE: If you still have containers running, please stop them now.
+
 == Steps to prepare the database
+Follow the steps below to create your own version of the Postgres image, including the files necessary to create the data we need for the testnetapp.
+
 . Create an empty folder
 . Put the .sh script from below in that folder
 . Create a Dockerfile in the folder that
 .. Is build https://docs.docker.com/engine/reference/builder/#/from[from] postgres:9
 .. https://docs.docker.com/engine/reference/builder/#/add[Adds] the .sh file to the docker-entrypoint-initdb.d folder in the container
-. Build the image, run it and link it with the testnetapp container
-
+. Build the image and run it
+. Run the testnetapp and link it to the new Postgres image
 
 .The script to add to the Dockerfile
 ----
@@ -21,6 +25,6 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
     CREATE DATABASE testnet;
     \c testnet
     CREATE TABLE kv (key varchar(100) PRIMARY KEY, value varchar(100));
-    INSERT INTO kv VALUES ('provider','postgres database');
+    INSERT INTO kv VALUES ('provider','Now getting data from Postgres!');
 EOSQL
 ----
