@@ -1,33 +1,12 @@
-= Docker test training
+= Docker for testers
 
-== Prerequisites
-* Hebben ze docker geinstalleerd? Zo nee, doen!
+This repository contains training material for testers that want to get started with http://www.docker.com[Docker]. It was developed by engineers at http://www.bol.com[bol.com].
 
-== Doel van de presentatie
-* Basisconcepten van Docker uitleggen
-* Simpele voorbeelden van containers
-* Workshop met als doel zelf webpagina met DB backend testen mbv Docker
+== Building the course material
+NOTE: You must have a recent version of the http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK] installed to build the course material.
 
-=== Vragen wat mensen nog meer zouden willen weten
+The course material is written in http://asciidoctor.org/[Asciidoctor] and can be built using the following command:
 
-== Wat is docker?
-* Docker vs VM: de verschillen (-> networking)
-* Docker distributie model (git-achtig)
-* Docker client/server
-* Container file systeem -> volumes
+ ./gradlew assemble
 
-== Simpele voorbeelden:
-* docker run hello-world
-* docker run bash -> docker inspect, docker ps
-* docker run nginx -> in browser laten zien
-* docker run pgsql -> inloggen met pgadmin
-
-== Labs
-* start nginx container met statische inhoud
-** volume mounten, aanpassen etc
-* nginx + selenium, klein testje (java omgeving?)
-* nginx + selenium + database, test dynamische pagina (docker link)
-
-== Extra credit lab
-* Met docker build pgsql image aanpassen dat ie automatisch baseline data inlaadt, die weer gebruiken in de test
-
+This command will generate a zip file containing all the material in the `workshop/build/distributions` directory.
