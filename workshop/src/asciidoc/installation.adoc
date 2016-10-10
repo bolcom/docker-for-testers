@@ -1,4 +1,4 @@
-== Instructions
+= Instructions
 
 Follow these steps to setup Docker on your machine.
 
@@ -8,7 +8,7 @@ Follow these steps to setup Docker on your machine.
 
 After installation continue with Exercise 1 to verify that your setup is running correctly.
 
-== Troubleshooting during installation
+= Troubleshooting during installation
 *Windows Home Edition*
 
 If you run Windows Home Edition and/or get a message about Hyper-V being disabled, you have to install https://www.docker.com/products/docker-toolbox[Docker Toolbox] instead because your version of Windows does not support the "Docker for Windows"-product.

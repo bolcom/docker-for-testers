@@ -1,9 +1,9 @@
-== Managing containers
+= Managing containers
 After exercise 1 and 2 we have a number of containers running, which we will probably want to stop at some point in time (like now).
 
 First we have to figure out which containers are currently running with *docker ps*.
 
-=== Stopping containers
+== Stopping containers
 .Listing all running containers
 ----
 $ docker ps
@@ -46,7 +46,7 @@ FOR /f "tokens=*" %i IN ('docker ps -a -q') DO docker stop %i
 
 If you now run *docker ps* no containers should be listed.
 
-=== Removing containers
+== Removing containers
 
 Now that we've stopped all the containers we can also remove them. Let's see how many stopped containers we have on our system by running *docker ps -a*.
 

@@ -1,4 +1,4 @@
-== Hello World!
+= Hello World!
 Let's start with verifying that your Docker setup is correct and that you can issue commands.
 
 .Open a command prompt and run:

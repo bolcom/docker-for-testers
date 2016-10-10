@@ -1,9 +1,9 @@
-== Building images
+= Building images
 *Running pre-made images is a lot of fun and can save you a lot of time, but at some point you will want to create your own images.*
 
 The training/webapp image is limited in that it can only say "Hello World" or "Hello Your Name", lets see if we can expand on the original image to connect to a Postgres database and display the name stored there.
 
-=== What do we need to change?
+== What do we need to change?
 In order to add the ability to connect to a database we have to change a number of things:
 
 . Expand the original image
@@ -17,7 +17,7 @@ In order to add the ability to connect to a database we have to change a number 
 
 The following sections will discuss all these steps one-by-one.
 
-==== Changes to the image
+=== Changes to the image
 In order to build a Docker image yourself you need a https://docs.docker.com/engine/reference/builder/[Dockerfile]. In this case we will supply you with the Dockerfile necessary to create the image. But you will have to run the build process yourself to make the image available to your Docker daemon.
 
 . Go to docker-images/training-webapp-postgres folder
@@ -32,7 +32,7 @@ In order to build a Docker image yourself you need a https://docs.docker.com/eng
 .. We run 2 commands inside the container to add the Python dependencies
 .. We overwrite the existing app.py file with our new app.py file that will check the database.
 
-==== Building the new image
+=== Building the new image
 We now have to instruct Docker to pickup the Dockerfile and build it with the tag "testnetapp".
 
 .Build the new image with a tag
@@ -40,7 +40,7 @@ We now have to instruct Docker to pickup the Dockerfile and build it with the ta
 
 NOTE: Make sure your working directory is docker-images/training-webapp-postgres
 
-==== Starting the new image
+=== Starting the new image
 Before we start a container with the testnetapp image we first need to start a Postgres database that will store the message for us.
 
 Luckily, we can use an off-the-shelve image provided by https://hub.docker.com/_/postgres/[Postgres].

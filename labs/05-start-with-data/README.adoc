@@ -1,9 +1,9 @@
-== Running your database with data included
+= Running your database with data included
 *Having to insert the data everytime you start a container can become a hassle. In this exercise we will put the data inside the Postgres image, so that it will be available on startup.*
 
 The https://hub.docker.com/_/postgres/[Postgres] image provides a convenient way to execute scripts on startup of your database. All we have to do is add a .sh script to the docker-entrypoint-initdb.d-folder as per the documentation of the image.
 
-==== Steps to prepare the database
+== Steps to prepare the database
 . Create the .sh script on your harddisk
 . Create a Dockerfile that
 .. Is build https://docs.docker.com/engine/reference/builder/#/from[from] postgres:9

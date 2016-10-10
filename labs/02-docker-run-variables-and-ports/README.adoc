@@ -1,4 +1,4 @@
-== Running Docker containers
+= Running Docker containers
 **This assignment focuses on the Docker commands necessary to start, stop and inspect containers.** +
 
 We will use a Docker image published in the Docker Hub to start a small web server that serves a single "Hello World!"-page.
@@ -24,7 +24,7 @@ The site should say "Hello world!".
 
 NOTE: If you are using Docker Toolbox, you may have to go to http://<docker ip>:<port> instead. Run *docker-machine ip default* to find the IP.
 
-=== Inspecting the logs
+== Inspecting the logs
 After you've seen the "Hello world"-message you might want to inspect the logs of the docker container with the *logs* command.
 
 .Show the logs
@@ -33,7 +33,7 @@ docker logs 23f00f1beda0
 ----
 You should see GET commands on the root (/) of your webserver.
 
-=== Passing environment variables to a container
+== Passing environment variables to a container
 Most containers are configurable through environment variables that you can pass to the container when starting with the *-e flag*.
 Let's pass your name to the container, so it will be shown when you visit the website.
 
@@ -49,7 +49,7 @@ Find out the port for this new container using the command below and visit it ag
 docker port <container id or name> 5000
 ----
 
-=== Run more containers
+== Run more containers
 .Execute the run command a couple of more times, followed by docker ps
 ----
 docker run -d -P training/webapp python app.py
