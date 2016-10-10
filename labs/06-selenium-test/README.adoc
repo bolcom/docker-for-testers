@@ -1,42 +1,43 @@
 == Checking whether the webpage is displayed correctly
 *Spinning up your own Selenium containers can be convenient if you want to test a site with a specific browser and don't want to bother with configuration of machines.*
 
-In this exercise we will run our testnetapp and verify that the displayed page has the correct content, using a browser supplied by Selenium.
+In this exercise we will run our `testnetapp` and verify that the displayed page has the correct content, using a browser supplied by Selenium.
 
 === Preparing the test environment
-For the automated check to succeed we are assuming a number of things:
+For the automated check to succeed we assume the following:
 
-. Postgres database is running and has data
-. Testnetapp is able to connect to the database
+. The Postgres database is running and has data
+. `testnetapp` is able to connect to the database
 . Selenium grid is running
-. Java environment to execute the tests  will be provided by a Docker container too
+. The Java environment to execute the tests will be provided by a Docker container too
 
 ==== Starting the selenium server
-Assuming you have the postgres and testnetapp image running, start the Selenium server by executing:
+Assuming you have the Postgres and `testnetapp` image running, start the Selenium server by executing:
 ----
 docker run --name selenium -d --link testnet -p 4444:4444 -p 5900:5900 selenium/standalone-firefox-debug
 ----
 
 ==== Connect with VNC
 In order to monitor test progress we can connect with https://www.realvnc.com/download/viewer/[VNC viewer] to the Selenium node after we've started it.
-The VNC server is listening on port 5900, the password is 'secret'.
+The VNC server is listening on port 5900, the password is `secret`.
 
 ==== Adjust SimpleTest
-We've prepared a simple Java project to test whether the testnetapp displays the correct message.
+We've prepared a simple Java project to test whether the `testnetapp` displays the correct message.
 Adjust the message you added to the database in the SimpleTest.java file. This file can be found inside the selenium-grid-docker directory.
 
 ==== Execute your test
-We will use the official https://hub.docker.com/_/maven/[Maven] image (maven:3.3.9-jdk-8-alpine) to build and execute our test.
+We will use the official https://hub.docker.com/_/maven/[Maven] image (`maven:3.3.9-jdk-8-alpine`) to build and execute our test.
 
-This image provides a Java environment and Maven (a Java build tool) to execute the project. In order to make the project files, which are on your local machine available to the container we will mount the selenium-grid-docker directory as a https://docs.docker.com/engine/tutorials/dockervolumes/#/mount-a-host-directory-as-a-data-volume[volume] for the container.
+This image provides a Java environment and Maven (a Java build tool) to execute the project. In order to make the project files, which are on your local machine, available to the container we will mount the `selenium-grid-docker` directory as a https://docs.docker.com/engine/tutorials/dockervolumes/#/mount-a-host-directory-as-a-data-volume[volume] for the container.
 
-NOTE: Make sure that your command prompt is in the selenium-grid-docker directory.
+[NOTE]
+Make sure that your command prompt is in the `selenium-grid-docker` directory.
 
 .Execute this command to start the test
  docker run -it --rm --name my-maven-project --link selenium -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3.3.9-jdk-8-alpine mvn clean install
 
 ==== Considerations
 ====
-* Why do we link the Maven container to the Selenium one? Why doesn't the Selenium container have to be linked to the testnetapp container?
-* What are the implications of the -v flag in the command?
+* Why do we link the Maven container to the Selenium container? Why doesn't the Selenium container have to be linked to the `testnetapp` container?
+* What are the implications of the `-v` flag in the command?
 

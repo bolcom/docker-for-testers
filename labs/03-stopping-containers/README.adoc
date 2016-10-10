@@ -1,7 +1,7 @@
 = Managing containers
 After exercise 1 and 2 we have a number of containers running, which we will probably want to stop at some point in time (like now).
 
-First we have to figure out which containers are currently running with *docker ps*.
+First we have to figure out which containers are currently running with `docker ps`.
 
 == Stopping containers
 .Listing all running containers
@@ -10,28 +10,28 @@ $ docker ps
 ----
 image:docker-ps-2.png[width=2000,height=200]
 
-You can stop a single container by running *docker stop* followed by its container id or name.
+You can stop a single container by running `docker stop` followed by the container id or name.
 
 .Stopping a single container
 ----
 docker stop a557431a5588
 ----
 
-You can specify multiple containers to stop all of them.
+You can also specify and stop multiple containers.
 
 .Stopping multiple containers
 ----
 docker stop a557431a5588 clever_fermi
 ----
 
-Of course, you might also want to stop all containers at once. We can do this by passing the output of the *ps* command to the *stop* command.
+Of course, you might also want to stop all containers at once. We can do this by passing the output of the `ps` command to the `stop` command.
 
 .docker ps flags
 ----
 docker ps -a -q
 ----
 
-Run *docker ps --help* to find out what the -a and -q flags do. You might have noticed this is exactly the output we need to feed to the stop command
+Run `docker ps --help` to find out what the `-a` and `-q` flags do. You might have noticed this is exactly the output we need to feed to the stop command
 
 .docker stop
 Linux/Mac OS X/Windows (Cygwin)
@@ -44,18 +44,18 @@ Windows (DOS Prompt)
 FOR /f "tokens=*" %i IN ('docker ps -a -q') DO docker stop %i
 ----
 
-If you now run *docker ps* no containers should be listed.
+If you now run `docker ps` the list of containers should be empty.
 
 == Removing containers
 
-Now that we've stopped all the containers we can also remove them. Let's see how many stopped containers we have on our system by running *docker ps -a*.
+Now that we've stopped all the containers we can also remove them. Let's see how many stopped containers we have on our system by running `docker ps -a`.
 
 .Listing stopped containers
 ----
 docker ps -a
 ----
 
-You can remove a container by running *docker rm* followed by its container id or name.
+You can remove a container by running `docker rm` followed by its container id or name.
 
 .Stopping a container
 ----
@@ -73,4 +73,4 @@ Windows (DOS Prompt)
 ----
 FOR /f "tokens=*" %i IN ('docker ps -a -q') DO docker rm %i
 ----
-If you now list all stopped containers again, *docker ps -a*, no containers should be returned.This does not mean that the images are no longer available, as you can see by running *docker images*. We've only cleaned up containers, instances of the images available on your system.
+If you now list all stopped containers again, `docker ps -a`, no containers should be returned.This does *not* mean that the images are no longer available, as you can see by running `docker images`. We've only removed the containers which are, in essence, instances of the images available on your system.

@@ -17,10 +17,9 @@ At the end of the day you will know how to:
 
 The training is structured as follows: first theory, followed by practice, with every step building on the previous step.
 
-= Presentation slides
+[NOTE]
 You can find the slides of the presentation on https://docs.google.com/presentation/d/1EiW9Ou-5a-Do_MqCZrLvU_YMbDwxMbjzMMJmX1ubauE/[Google Drive]
 
-= Installation
 include::./installation.adoc[leveloffset=+1]
 
 = Exercises

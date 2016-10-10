@@ -6,10 +6,10 @@ Let's start with verifying that your Docker setup is correct and that you can is
 docker run hello-world
 ----
 
-This should show you a "Hello from Docker!"-message and additional details on what happened under the hood.
+This should show you a "Hello from Docker!" message and additional details on what happened under the hood.
 
 .Breaking down the command
-Let's have a closer look at what the command we've ran just now actually means.
+Let's have a closer look at what the command we've just run actually means.
 ----
 <docker> <run> <hello-world>
 
