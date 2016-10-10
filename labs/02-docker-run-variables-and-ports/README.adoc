@@ -1,5 +1,5 @@
 = Running Docker containers
-**This assignment focuses on the Docker commands necessary to start, stop and inspect containers.** +
+*This assignment focuses on the Docker commands necessary to start, stop and inspect containers.* +
 
 We will use a Docker image published on the Docker Hub to start a small web server that serves a single "Hello World!"-page.
 

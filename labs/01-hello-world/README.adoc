@@ -1,5 +1,7 @@
 = Hello World!
-Let's start with verifying that your Docker setup is correct and that you can issue commands.
+*Let's get started!*
+
+Let's begin with verifying that your Docker setup is correct and that you can issue commands.
 
 .Open a command prompt and run:
 ----
