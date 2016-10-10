@@ -51,6 +51,9 @@ Luckily, we can use an off-the-shelve image provided by https://hub.docker.com/_
 ----
 docker run --name pg -e POSTGRES_PASSWORD=testnet -d postgres
 ----
+==== Add data to the database
+====
+Because you may not have a Postgres database client installed we start another container from the Postgres image to connect to the previously started container. From there we can add some data to the database to display in the testnetapp.
 
 .Connect with PSQL to the database
  docker run -it --rm --link pg:pg postgres psql -h pg -U postgres
@@ -63,6 +66,7 @@ docker run --name pg -e POSTGRES_PASSWORD=testnet -d postgres
  INSERT INTO kv VALUES ('provider','testnet on pg');
  SELECT * FROM kv; -- Check that the data is really there
  \q
+====
 
 .Now run the app and check that your message is there
  docker run -ti --link pg:pg -p 5000:5000 testnetapp
