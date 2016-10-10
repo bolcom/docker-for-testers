@@ -27,4 +27,4 @@ docker run --name pg -e POSTGRES_PASSWORD=testnet -d postgres
 docker run --name testnet -d --link pg:pg -p 5000:5000 testnetapp
 (execute database stuff!)
 docker run --name selenium -d --link testnet -p 4444:4444 -p 5900:5900 selenium/standalone-firefox-debug
-docker run -it --rm --name my-maven-project --link selenium --link testnet -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3.3.9-jdk-8-alpine mvn clean install
+docker run -it --rm --name my-maven-project --link selenium -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3.3.9-jdk-8-alpine mvn clean install
