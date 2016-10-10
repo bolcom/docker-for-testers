@@ -28,7 +28,7 @@ Adjust the message you added to the database in the SimpleTest.java file. This f
 ==== Execute your test
 We will use the official https://hub.docker.com/_/maven/[Maven] image (maven:3.3.9-jdk-8-alpine) to build and execute our test.
 
-This image provides a Java environment and Maven (a Java build tool) to execute the project. In order to make the project files, which are on your local machine available to the container we will mount the selenium-grid-docker directory as a volume for the container.
+This image provides a Java environment and Maven (a Java build tool) to execute the project. In order to make the project files, which are on your local machine available to the container we will mount the selenium-grid-docker directory as a https://docs.docker.com/engine/tutorials/dockervolumes/#/mount-a-host-directory-as-a-data-volume[volume] for the container.
 
 NOTE: Make sure that your command prompt is in the selenium-grid-docker directory.
 
