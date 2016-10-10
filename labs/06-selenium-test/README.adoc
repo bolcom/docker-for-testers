@@ -37,6 +37,6 @@ NOTE: Make sure that your command prompt is in the selenium-grid-docker director
 
 ==== Considerations
 ====
-* Why do we link to two containers, selenium & testnet, from the Maven container?
+* Why do we link the Maven container to the Selenium one? Why doesn't the Selenium container have to be linked to the testnetapp container?
 * What are the implications of the -v flag in the command?
 
