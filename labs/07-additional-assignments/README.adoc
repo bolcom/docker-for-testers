@@ -1,0 +1,9 @@
+== Additional assignments
+The following assignments are extra. They give less information upfront and you'll have to investigate a bit yourself.
+
+=== Run a Selenium Hub with nodes for Firefox and Chrome
+In assignment 06 we used a single container, but often you will want to test your application in multiple browsers.
+Figure out which https://github.com/SeleniumHQ/docker-selenium[containers] you need and how to adjust the SimpleTest class to use a different browser.
+
+=== Run the testnetapp with a different type of database
+See if you can adjust the Python script in the testnetapp container to talk to a different type of database, such as https://hub.docker.com/r/wnameless/oracle-xe-11g/[Oracle XE].
