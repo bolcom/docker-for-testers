@@ -20,7 +20,7 @@ image:docker-ps.png[width=2000,height=74]
 ----
 Go to http://localhost:32769 (the port number left of the -> in the docker ps command output)
 ----
-NOTE: If you are using the Docker Toolbox, you may have to go to `http://<docker ip>:<port>` instead. Run `docker-machine ip default` to find the IP. Run `docker-machine ls` to find out the name of your Docker Machine.
+NOTE: If you are using the Docker Toolbox, you have to go to `http://<docker ip>:<port>` instead. Run `docker-machine ip default` to find the IP. Run `docker-machine ls` to find out the name of your Docker Machine.
 
 The site should say "Hello world!".
 
