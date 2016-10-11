@@ -40,4 +40,4 @@ Make sure that your command prompt is in the `selenium-grid-docker` directory.
 ====
 * Why do we link the Maven container to the Selenium container? Why doesn't the Selenium container have to be linked to the `testnetapp` container?
 * What are the implications of the `-v` flag in the command?
-
+====
