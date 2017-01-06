@@ -1,9 +1,12 @@
 = Building images
+
 *Running pre-made images is very useful and can save you a lot of time, but at some point you will want to create your own images.*
 
 The `training/webapp` image is limited in that it can only say "Hello World" or "Hello Your Name", let's see if we can expand on the original image to display a value stored in a Postgres database.
 
 == What do we need to change?
+image:postgres-container.png[width=600,height=600]
+
 In order to add the ability to connect to a database we have to change a number of things:
 
 . Expand the original image
@@ -41,6 +44,8 @@ NOTE: Make sure your working directory is `docker-images/training-webapp-postgre
 .Build the new image with a tag
  docker build -t testnetapp .
 
+NOTE: Read the documentation of the build command: `docker build --help`
+
 ==== Starting the new image
 Before we start a container with the `testnetapp` image we first need to start a Postgres database that will store our data for us.
 
@@ -68,3 +73,6 @@ Because you may not have a Postgres database client installed we start another c
 
 .Now run the app and check that your data is displayed
  docker run -ti --link pg:pg -p 5000:5000 testnetapp
+
+NOTE: In foreground mode (the default when -d is not specified), docker run can start the process in the container and attach the console to the process’s standard input, output, and standard error. It can even pretend to be a TTY (this is what most command line executables expect) and pass along signals.
+For interactive processes (like a shell), you must use -i -t together in order to allocate a tty for the container process. -i -t is often written -it.
