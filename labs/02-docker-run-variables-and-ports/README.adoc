@@ -68,4 +68,6 @@ Of course, at times you may want to have more control over the ports you are run
 Figure out how to start another `training/webapp` container mapping a specific port (80) to the exposed port of the container (5000).
 Afterwards you should be able to see the Hello-message on http://localhost:80.
 
+Also figure out what the -d parameter is doing by checking the documentation.
+
 NOTE: Start by checking the documentation of the run command: `docker run --help`

@@ -41,6 +41,8 @@ NOTE: Make sure your working directory is `docker-images/training-webapp-postgre
 .Build the new image with a tag
  docker build -t testnetapp .
 
+NOTE: Read the documentation of the build command: `docker build --help`
+
 ==== Starting the new image
 Before we start a container with the `testnetapp` image we first need to start a Postgres database that will store our data for us.
 
@@ -68,3 +70,5 @@ Because you may not have a Postgres database client installed we start another c
 
 .Now run the app and check that your data is displayed
  docker run -ti --link pg:pg -p 5000:5000 testnetapp
+
+NOTE: The -it instructs Docker to allocate a pseudo-TTY connected to the container’s stdin; creating an interactive bash shell in the container. In the example, the bash shell is quit by entering exit 13. This exit code is passed on to the caller of docker run, and is recorded in the test container’s metadata.
