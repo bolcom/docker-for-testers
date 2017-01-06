@@ -4,6 +4,8 @@
 In this exercise we will run our `testnetapp` and verify that the displayed page has the correct content, using a browser supplied by Selenium.
 
 == Preparing the test environment
+image:container-overview.png[width=600,height=600]
+
 For the automated check to succeed we assume the following:
 
 . The Postgres database is running and has data
@@ -14,7 +16,7 @@ For the automated check to succeed we assume the following:
 == Starting the selenium server
 Assuming you have the Postgres and `testnetapp` image running, start the Selenium server by executing:
 ----
-docker run --name selenium -d --link testnet -p 4444:4444 -p 5900:5900 selenium/standalone-firefox-debug
+docker run --name selenium -d --link testnetapp -p 4444:4444 -p 5900:5900 selenium/standalone-firefox-debug
 ----
 
 == Connect with VNC
