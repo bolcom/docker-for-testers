@@ -12,6 +12,7 @@ In order to add the ability to connect to a database we have to change a number 
 . Expand the original image
 .. Add Python dependencies to enable connections to a Postgres database
 .. Replace the original Python application with our version
+. Setup a docker network
 . Run a database with data
 .. Run a Postgres database image
 .. Add our data to the running database
@@ -24,7 +25,7 @@ The following sections will discuss all these steps one-by-one.
 In order to build a Docker image yourself you need a https://docs.docker.com/engine/reference/builder/[Dockerfile]. In this case we will supply you with the Dockerfile necessary to create the image. But you will have to run the build process yourself to make the image available to your Docker daemon.
 
 . Download the https://github.com/bolcom/docker-for-testers/archive/master.zip[workshop zip file] and unzip it on your local harddisk
-. Go to `docker-images/training-webapp-postgres` folder
+. Go to `docker-images/training-webapp` folder
 . Review the Dockerfile to understand what we are building
 
  [a] FROM training/webapp
@@ -36,31 +37,44 @@ In order to build a Docker image yourself you need a https://docs.docker.com/eng
 .. We run 2 commands inside the container to add the Python dependencies
 .. We overwrite the existing `app.py` file with our new `app.py` file that will check the database.
 
-=== Building the new image
+==== Building the new image
 We now have to instruct Docker to pickup the Dockerfile and build it with the tag `testnetapp`.
 
-NOTE: Make sure your working directory is `docker-images/training-webapp-postgres`
+NOTE: Make sure your working directory is `docker-images/training-webapp`
 
 .Build the new image with a tag
  docker build -t testnetapp .
 
 NOTE: Read the documentation of the build command: `docker build --help`
 
-==== Starting the new image
+=== Setup a docker network
+If we want docker containers to be able to reach each other, we need to setup a https://docs.docker.com/engine/userguide/networking/[docker container network]. To create a docker network called "training" we need to run the following command:
+
+----
+docker network create training
+----
+
+=== Starting the new image
 Before we start a container with the `testnetapp` image we first need to start a Postgres database that will store our data for us.
 
 Luckily, we can use an off-the-shelf image provided by https://hub.docker.com/_/postgres/[Postgres].
 
-.Run the Postgres image with a variable to set the password
+.Run the Postgres image with a variable to set the password. Also notice the "--network training" parameter.
 ----
-docker run --name pg -e POSTGRES_PASSWORD=testnet -d postgres
+docker run --network training --name pg -e POSTGRES_PASSWORD=testnet -d postgres
 ----
+
+Use the following command to inspect the docker container network:
+----
+docker network inspect training
+----
+
 ==== Add data to the database
 ====
 Because you may not have a Postgres database client installed we start another container from the Postgres image to connect to the previously started container. From there we can add some data to the database to display in the testnetapp.
 
 .Connect with PSQL to the database
- docker run -it --rm --link pg:pg postgres psql -h pg -U postgres
+ docker run -it --rm --network training postgres psql -h pg -U postgres
 
 .Execute commands in the running database to prepare data
  CREATE DATABASE testnet;
@@ -71,8 +85,9 @@ Because you may not have a Postgres database client installed we start another c
  \q
 ====
 
+=== Run the newly built testnetapp image
 .Now run the app and check that your data is displayed
- docker run -ti --link pg:pg -p 5000:5000 testnetapp
+ docker run -ti --network training --name testnetapp -p 5000:5000 testnetapp
 
 NOTE: In foreground mode (the default when -d is not specified), docker run can start the process in the container and attach the console to the process’s standard input, output, and standard error. It can even pretend to be a TTY (this is what most command line executables expect) and pass along signals.
 For interactive processes (like a shell), you must use -i -t together in order to allocate a tty for the container process. -i -t is often written -it.

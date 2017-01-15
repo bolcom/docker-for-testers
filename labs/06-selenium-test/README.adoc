@@ -16,7 +16,7 @@ For the automated check to succeed we assume the following:
 == Starting the selenium server
 Assuming you have the Postgres and `testnetapp` image running, start the Selenium server by executing:
 ----
-docker run --name selenium -d --link testnetapp -p 4444:4444 -p 5900:5900 selenium/standalone-firefox-debug
+docker run --name selenium -d --network training -p 4444:4444 -p 5900:5900 selenium/standalone-firefox-debug
 ----
 
 == Connect with VNC
@@ -36,10 +36,9 @@ This image provides a Java environment and Maven (a Java build tool) to execute 
 Make sure that your command prompt is in the `selenium-grid-docker` directory.
 
 .Execute this command to start the test
- docker run -it --rm --name my-maven-project --link selenium -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3.3.9-jdk-8-alpine mvn clean install
+ docker run -it --rm --name my-maven-project --network training -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3.3.9-jdk-8-alpine mvn clean install
 
 ==== Considerations
 ====
-* Why do we link the Maven container to the Selenium container? Why doesn't the Selenium container have to be linked to the `testnetapp` container?
 * What are the implications of the `-v` flag in the command?
 ====
