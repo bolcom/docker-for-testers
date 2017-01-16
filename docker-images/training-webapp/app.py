@@ -6,7 +6,7 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
-def hello():    
+def hello():
     conn = pgdb.connect( host='pg', user='postgres', password='testnet', database='testnet' )
     cur = conn.cursor()
     cur.execute( "SELECT value FROM kv WHERE key='provider'" )

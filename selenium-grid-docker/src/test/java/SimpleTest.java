@@ -24,7 +24,7 @@ public class SimpleTest {
     @Before
     public void setUp() throws MalformedURLException {
         driver = new RemoteWebDriver(new URL("http://selenium:4444/wd/hub"), capability);
-        driver.get("http://testnet:5000");
+        driver.get("http://testnetapp:5000");
     }
 
     @After

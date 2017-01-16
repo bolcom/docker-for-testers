@@ -7,20 +7,13 @@ The https://hub.docker.com/_/postgres/[Postgres] image provides a convenient way
 [NOTE]
 If you still have containers running, please stop them now.
 
-== Steps to prepare the database
+== Build & run the image
 image:custom-db-container.png[width=600,height=600]
 
 Follow the steps below to create your own version of the Postgres image, including the files necessary to create the data we need for the `testnetapp`.
 
-. Create an empty folder
-. Put the `.sh` script below in that folder
-. Create a `Dockerfile` in the folder that
-.. Is built https://docs.docker.com/engine/reference/builder/#/from[from] postgres:9
-.. https://docs.docker.com/engine/reference/builder/#/add[Adds] the `.sh` file to the `docker-entrypoint-initdb.d` folder in the container
-. Build the image and run it
-. Run the `testnetapp` and link it to the new Postgres image
-
-.The script to add to the Dockerfile
+- Create an empty folder
+. Save the shell script below in that folder as `create.sh`
 ----
 #!/bin/bash
 set -e
@@ -32,3 +25,14 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
     INSERT INTO kv VALUES ('provider','Now getting data from Postgres!');
 EOSQL
 ----
+- Create a `Dockerfile` in the folder that
+.. Is built https://docs.docker.com/engine/reference/builder/#/from[from] postgres:9
+.. https://docs.docker.com/engine/reference/builder/#/add[Adds] the `.sh` file to the `docker-entrypoint-initdb.d` folder in the container
+- Build the image and run it as part of the training network
+- Run the `testnetapp` and make it part of the training network
+
+You should see the message 'Now getting data from Postgres!' if you visit the web app.
+
+[NOTE]
+On Windows you may have to run dos2unix on your .sh file before you can build the image. This will fix the line-endings in the script and allow it to be executed by the database image.
+

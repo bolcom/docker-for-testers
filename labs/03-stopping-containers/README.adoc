@@ -1,12 +1,12 @@
 = Managing containers
-*After exercise 1 and 2 we have a number of containers running, which we will probably want to stop at some point in time (like now).*
+*After exercise 1 and 2 we have a number of containers running, which we will probably want to stop at some point in time. Let's practice that now.*
 
 First we have to figure out which containers are currently running with `docker ps`.
 
 == Stopping containers
 .Listing all running containers
 ----
-$ docker ps
+docker ps
 ----
 image:docker-ps-2.png[width=2000,height=200]
 
