@@ -11,6 +11,9 @@ We will use a Docker image published on the Docker Hub to start a small web serv
 docker run -d -P training/webapp python app.py
 ----
 
+This runs the `training/webapp`-image in detached (`-d`) mode, exposing all ports (`-P`), calling `python` inside the container with one argument `app.py`, which is a script inside the container.
+
+
 .List the details of the newest container
 ----
 docker ps -l
@@ -23,12 +26,12 @@ image:docker-ps.png[width=2000,height=74]
 ----
 Go to http://localhost:32769 (the port number left of the -> in the docker ps command output)
 ----
+The site should say `Hello world!`.
+
 NOTE: If you are using the Docker Toolbox, you have to go to `http://<docker ip>:<port>` instead. Run `docker-machine ip default` to find the IP. Run `docker-machine ls` to find out the name of your Docker Machine.
 
-The site should say "Hello world!".
-
 == Inspecting the logs
-After you've seen the "Hello world"-message you might want to inspect the logs of the docker container with the `logs` command.
+After you've seen the `Hello world-message` you might want to inspect the logs of the docker container with the `logs` command.
 
 .Show the logs
 ----
@@ -37,7 +40,7 @@ docker logs <container id or name>
 You should see `GET` commands on the root (/) of your webserver.
 
 == Passing environment variables to a container
-Most containers are configurable using environment variables that you can pass in at startup with the `-e` flag.
+A lot of containers are configurable using environment variables that you can pass in at startup with the `-e` flag.
 We'll use the container's `PROVIDER` environment variable to pass in your name so it will be shown when you visit the website.
 
 NOTE: Environment variables are a set of dynamic, named values that can affect the way running processes will behave on a computer. They are part of the environment in which a process runs. https://en.wikipedia.org/wiki/Environment_variable[Wikipedia]
@@ -71,6 +74,5 @@ Of course, at times you may want to have more control over the ports you are run
 Figure out how to start another `training/webapp` container mapping a specific port (80) to the exposed port of the container (5000).
 Afterwards you should be able to see the Hello-message on http://localhost:80.
 
-Also figure out what the -d parameter is doing by checking the documentation.
+NOTE: Start by checking the https://docs.docker.com/engine/reference/run/#/expose-incoming-ports[documentation of the run command] or execute: `docker run --help`. Also figure out what the -d parameter is doing by checking the documentation.
 
-NOTE: Start by checking the documentation of the run command: `docker run --help`

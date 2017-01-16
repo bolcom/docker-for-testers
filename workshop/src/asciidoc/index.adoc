@@ -8,7 +8,7 @@ image:docker-logo.png[width=250,height=250]
 
 **The purpose of this training is to learn how to use Docker on your local machine.**
 
-At the end of the day you will know how to:
+After finishing the training you will know how to:
 
 * Start and stop containers
 * Build your own images
@@ -29,5 +29,6 @@ include::../../../labs/03-stopping-containers/README.adoc[leveloffset=+1]
 include::../../../labs/04-building-images/README.adoc[leveloffset=+1]
 include::../../../labs/05-start-with-data/README.adoc[leveloffset=+1]
 include::../../../labs/06-selenium-test/README.adoc[leveloffset=+1]
+include::../../../labs/07-additional-assignments/README.adoc[leveloffset=+1]
 
 include::./appendix.adoc[leveloffset=+1]
