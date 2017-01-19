@@ -30,11 +30,11 @@ In order to build a Docker image yourself you need a https://docs.docker.com/eng
 
  [a] FROM training/webapp
  [b] RUN apt-get -y update && apt-get -y install libpq-dev python-dev
- [b] RUN pip install pygresql
+     RUN pip install pygresql
  [c] ADD app.py /opt/webapp/app.py
 
 .. We use the `training/webapp` image as a base-image
-.. We run 2 commands inside the container to add the Python dependencies
+.. We run 2 commands inside the container to install python and pygresql (a library that lets python code talk to PostgreSQL)
 .. We overwrite the existing `app.py` file with our new `app.py` file that will check the database.
 
 == Building the new image
