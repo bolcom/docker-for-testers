@@ -1,5 +1,6 @@
 import os
 import pgdb
+import logging
 
 from flask import Flask
 
@@ -15,6 +16,7 @@ def hello():
     return 'Hello '+provider+'!'
 
 if __name__ == '__main__':
+    logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
     # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
