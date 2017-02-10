@@ -1,6 +1,6 @@
 = Running Docker containers
 
-image:first-container.png[width=500,height=500]
+image:first-container.png[width=380,height=500]
 
 *This assignment focuses on the Docker commands necessary to start, stop and inspect containers.* +
 

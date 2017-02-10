@@ -5,7 +5,7 @@
 The `training/webapp` image is limited in that it can only say "Hello World" or "Hello Your Name", let's see if we can expand on the original image to display a value stored in a Postgres database.
 
 == What do we need to change?
-image:postgres-container.png[width=600,height=600]
+image:postgres-container.png[width=380,height=350]
 
 In order to add the ability to connect to a database we have to change a number of things:
 
@@ -25,7 +25,7 @@ The following sections will discuss all these steps one-by-one.
 In order to build a Docker image yourself you need a https://docs.docker.com/engine/reference/builder/[Dockerfile]. In this case we will supply you with the Dockerfile necessary to create the image. But you will have to run the build process yourself to make the image available to your Docker daemon.
 
 . Download the https://github.com/bolcom/docker-for-testers/archive/master.zip[workshop zip file] and unzip it on your local harddisk
-. Go to `docker-images/training-webapp` folder
+. Go to `docker-images/webserver` folder
 . Review the Dockerfile to understand what we are building
 
  [a] FROM training/webapp
@@ -38,12 +38,12 @@ In order to build a Docker image yourself you need a https://docs.docker.com/eng
 .. We overwrite the existing `app.py` file with our new `app.py` file that will check the database.
 
 == Building the new image
-We now have to instruct Docker to pickup the Dockerfile and build it with the tag `testnetapp`.
+We now have to instruct Docker to pickup the Dockerfile and build it with the tag `webserver`.
 
-NOTE: Make sure your working directory is `docker-images/training-webapp`
+NOTE: Make sure your working directory is `docker-images/webserver`
 
 .Build the new image with a tag
- docker build -t testnetapp .
+ docker build -t webserver .
 
 NOTE: Read the documentation of the build command: `docker build --help`
 
@@ -58,13 +58,13 @@ docker network create training
 A Docker network automatically allows Docker containers to reach each other by container name, as long as they are part of the same network. This works via the https://docs.docker.com/engine/userguide/networking/#/docker-embedded-dns-server[DNS server] on the Docker daemon.
 
 == Starting the new image
-Before we start a container with the `testnetapp` image we first need to start a Postgres database that will store our data for us.
+Before we start a container with the `webserver` image we first need to start a Postgres database that will store our data for us.
 
 Luckily, we can use an off-the-shelf image provided by https://hub.docker.com/_/postgres/[Postgres].
 
 .Run the Postgres image with a variable to set the password. Also notice the "--network training" parameter.
 ----
-docker run --network training --name pg -e POSTGRES_PASSWORD=testnet -d postgres
+docker run --rm --network training --name database -e POSTGRES_PASSWORD=testnet -d postgres
 ----
 
 Use the following command to inspect the docker container network:
@@ -73,7 +73,7 @@ docker network inspect training
 ----
 
 == Add data to the database
-Because you may not have a Postgres database client installed we start another container from the Postgres image to connect to the previously started container. From there we can add some data to the database to display in the testnetapp.
+Because you may not have a Postgres database client installed we start another container from the Postgres image to connect to the previously started container. From there we can add some data to the database to display on the webpage.
 
 .Connect with PSQL to the database
  docker run -it --rm --network training postgres psql -h pg -U postgres
@@ -88,9 +88,9 @@ This starts a new instance of the `postgres` image in interactive mode (`-it`), 
  SELECT * FROM kv; -- Check that the data is really there
  \q
 
-== Run the newly built testnetapp image
+== Run the newly built webserver image
 .Now run the app and check that your data is displayed
- docker run -it --network training --name testnetapp -p 5000:5000 testnetapp
+ docker run -it --rm --network training --name webserver -p 5000:5000 webserver
 
 NOTE: In foreground mode (the default when -d is not specified), `docker run` can start the process in the container and attach the console to the process’s standard input, output, and standard error. It can even pretend to be a TTY (this is what most command line executables expect) and pass along signals.
 For interactive processes (like a shell), you must use -i -t together in order to allocate a tty for the container process. -i -t is often written -it.

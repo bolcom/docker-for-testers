@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    conn = pgdb.connect( host='pg', user='postgres', password='testnet', database='testnet' )
+    conn = pgdb.connect( host='database', user='postgres', password='testnet', database='testnet' )
     cur = conn.cursor()
     cur.execute( "SELECT value FROM kv WHERE key='provider'" )
     provider = cur.fetchone()[0]

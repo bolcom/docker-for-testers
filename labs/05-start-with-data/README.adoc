@@ -1,6 +1,6 @@
 = Running your database with data included
 
-*Having to insert the data every time you start a container can become a hassle. In this exercise we will bake our data into the Postgres image so that it will be available on startup.*
+*Having to insert the data every time you start a container can become a hassle. In this exercise we will create our own version of the Postgres image and bake our data into it. That way the data will always be available on startup.*
 
 The https://hub.docker.com/_/postgres/[Postgres] image provides a convenient way to execute scripts on startup of your database. All we have to do is add a `.sh` script to the `docker-entrypoint-initdb.d-folder` as per the documentation of the image.
 
@@ -8,9 +8,9 @@ The https://hub.docker.com/_/postgres/[Postgres] image provides a convenient way
 If you still have containers running, please stop them now.
 
 == Build & run the image
-image:custom-db-container.png[width=600,height=600]
+image:custom-db-container.png[width=380,height=350]
 
-Follow the steps below to create your own version of the Postgres image, including the files necessary to create the data we need for the `testnetapp`.
+Follow the steps below to create your own version of the Postgres image, including the files necessary to create the data we will access from the `webserver`.
 
 - Create an empty folder
 . Save the shell script below in that folder as `create.sh`
@@ -28,11 +28,11 @@ EOSQL
 - Create a `Dockerfile` in the folder that
 .. Is built https://docs.docker.com/engine/reference/builder/#/from[from] postgres:9
 .. https://docs.docker.com/engine/reference/builder/#/add[Adds] the `.sh` file to the `docker-entrypoint-initdb.d` folder in the container
-- Build the image and run it as part of the training network
-- Run the `testnetapp` and make it part of the training network
+- Build the image as `database` and run it as part of the training network
+- Run a `webserver` container and make it part of the training network
 
 You should see the message 'Now getting data from Postgres!' if you visit the web app.
 
 [NOTE]
-On Windows you may have to run dos2unix on your .sh file before you can build the image. This will fix the line-endings in the script and allow it to be executed by the database image.
+On Windows you may have to run dos2unix on your .sh file before you can build the image. This will fix the line-endings in the script and allow it to be executed by the database image. Alternatively you can open the .sh file in Notepad++ and change the line endings to UNIX style.
 

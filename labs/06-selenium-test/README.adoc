@@ -1,22 +1,22 @@
 = Checking whether the webpage is displayed correctly
 *Spinning up your own Selenium containers can be convenient if you want to test a site with a specific browser and don't want to bother with configuration of machines.*
 
-In this exercise we will run our `testnetapp` and verify that the displayed page has the correct content, using a browser supplied by Selenium.
+In this exercise we will run our `webserver` and verify that the displayed page has the correct content, using a browser supplied by Selenium.
 
 == Preparing the test environment
-image:container-overview.png[width=600,height=600]
+image:container-overview.png[width=380,height=350]
 
-For the automated check to succeed we assume the following:
+For the automated check to succeed we need to create the following situation:
 
-. The Postgres database is running and has data
-. `testnetapp` is able to connect to the database
+. The `database` container is running and has data
+. `webserver` is able to connect to the `database`
 . Selenium grid is running
 . The Java environment to execute the tests will be provided by a Docker container too
 
 == Starting the selenium server
-Assuming you have the Postgres and `testnetapp` image running, start the Selenium server by executing:
+Assuming you have the `database` and `webserver` containers running, start the Selenium server by executing:
 ----
-docker run --name selenium -d --network training -p 4444:4444 -p 5900:5900 selenium/standalone-firefox-debug
+docker run --rm --name selenium -d --network training -p 4444:4444 -p 5900:5900 selenium/standalone-firefox-debug
 ----
 
 == Connect with VNC
@@ -24,7 +24,7 @@ In order to monitor test progress we can connect with https://www.realvnc.com/do
 The VNC server is listening on port 5900, the password is `secret`.
 
 == Adjust SimpleTest
-We've prepared a simple Java project to test whether the `testnetapp` displays the correct message.
+We've prepared a simple Java project to test whether the `webserver` displays the correct message.
 Adjust the message you added to the database in the SimpleTest.java file. This file can be found inside the selenium-grid-docker directory.
 
 == Execute your test
