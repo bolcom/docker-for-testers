@@ -78,7 +78,7 @@ Because you may not have a Postgres database client installed we start another c
 .Connect with PSQL to the database
  docker run -it --rm --network training postgres psql -h database -U postgres
 
-This starts a new instance of the `postgres` image in interactive mode (`-it`), removes it after stopping the container (`--rm`), makes it part of the `training`-network and executes `psql -h pg -U postgres` inside the container in order to connect to the running database container.
+This starts a new instance of the `postgres` image in interactive mode (`-it`), removes it after stopping the container (`--rm`), makes it part of the `training`-network and executes `psql -h database -U postgres` inside the container in order to connect to the running database container.
 
 .Execute commands in the running database to prepare data
  CREATE DATABASE testnet;
