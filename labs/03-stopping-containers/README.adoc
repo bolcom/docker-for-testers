@@ -57,7 +57,7 @@ docker ps -a
 
 You can remove a container by running `docker rm` followed by its container id or name.
 
-.Stopping a container
+.Removing a container
 ----
 docker rm big_newton
 ----
