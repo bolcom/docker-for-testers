@@ -1,16 +1,22 @@
 = Installation instructions
 
-Follow these steps to setup Docker on your machine.
+In order to do this workshop you need to install Docker Community Edition on your machine. We recommend you install the stable edition.
 
-* Go to https://www.docker.com/products/overview#/install_the_platform
-* Download the distributable for your system type
-* Follow the installation instructions
+== Mac
+Please install Docker Community Edition for Mac. You can find the download link on: https://store.docker.com/editions/community/docker-ce-desktop-mac
+
+== Windows
+Choose the correct Docker installation based on your Windows version.
+
+* Windows 8 or earlier
+** Install Docker Toolbox from https://www.docker.com/products/docker-toolbox
+* Windows 10 Home edition
+** Install Docker Toolbox from https://www.docker.com/products/docker-toolbox
+* Windows 10 Professional or Enterprise 64-bit
+** Install Docker Community Edition for Windows from https://store.docker.com/editions/community/docker-ce-desktop-windows
 
 After the installation is complete, continue with the first exercise to verify that your setup is running correctly.
 
-[NOTE]
-*Windows Home Edition* +
-If you run Windows Home Edition and/or get a message about Hyper-V being disabled, you have to install https://www.docker.com/products/docker-toolbox[Docker Toolbox] instead because your version of Windows does not support the "Docker for Windows"-product.
 [NOTE]
 *Hardware Virtualization disabled* +
 If you encounter the message "VT-x/AMD-v has to be enabled", please enable "Intel Virtualization" in the BIOS of your system. This is required for running virtual machines. Detailed instructions can be found http://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/[here] under "Access the BIOS or UEFI Firmware".
