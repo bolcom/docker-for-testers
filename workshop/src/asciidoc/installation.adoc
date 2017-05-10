@@ -21,3 +21,5 @@ After the installation is complete, continue with the first exercise to verify t
 *Hardware Virtualization disabled* +
 If you encounter the message "VT-x/AMD-v has to be enabled", please enable "Intel Virtualization" in the BIOS of your system. This is required for running virtual machines. Detailed instructions can be found http://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/[here] under "Access the BIOS or UEFI Firmware".
 
+== Download the zip
+link:{project-name}.zip[download the zip with the labs]

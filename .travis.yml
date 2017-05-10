@@ -15,7 +15,9 @@ script:
   - ./gradlew clean build
 
 after_success:
-  - cd "$TRAVIS_BUILD_DIR/workshop/build/docker/docs/"
+  - cd "$TRAVIS_BUILD_DIR/workshop/build/docker/"
+  - zip -r "docker-for-testers/docker-for-testers.zip" docker-for-testers
+  - cd docker-for-testers
   - pwd
   - ls
   - git init
