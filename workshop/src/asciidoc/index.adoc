@@ -4,7 +4,7 @@
 [.center]
 image:docker-logo.png[width=250,height=250]
 
-= Docker for testers tralala
+= Docker for testers tralala2
 
 **The purpose of this training is to learn how to use Docker on your local machine.**
 
