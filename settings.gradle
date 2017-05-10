@@ -1,6 +1,6 @@
 include 'workshop'
 
-rootProject.name = 'docker-test-training'
+rootProject.name = 'docker-for-testers'
 rootProject.children.each { project ->
     String fileBaseName = project.name
     project.projectDir = new File(settingsDir, fileBaseName)
