@@ -1,0 +1,31 @@
+language: java
+sudo: false
+jdk:
+  - oraclejdk8
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+script:
+  - ./gradlew clean build
+
+after_success:
+  - cd "$TRAVIS_BUILD_DIR/workshop/build/docker/"
+  - zip -r "docker-for-testers/docker-for-testers.zip" docker-for-testers
+  - cd docker-for-testers
+  - pwd
+  - ls
+  - git init
+  - git config user.name "Travis CI"
+  - git config user.email "travis@travis-ci.org"
+  - git status
+  - git add .
+  - git status
+  - git commit -m "Deploy to GitHub Pages"
+  - echo $TRAVIS_REPO_SLUG
+  - git push --force --quiet "https://${GH_TOKEN}@github.com/$TRAVIS_REPO_SLUG" master:gh-pages > /dev/null 2>&1
