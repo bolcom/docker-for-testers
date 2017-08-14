@@ -8,3 +8,32 @@ You can start named containers by adding `--name your_name` to any docker run co
 This is easily resolved by running
 
  docker rm -f <container_name>
+
+or add the --rm flag when starting the container, which will delete the container as soon as it stops.
+
+== Want more?
+
+We can imagine this workshop has left you wanting for more. Whether you want to read some more, or do more practical assignments, we've got you covered. Check out the links below.
+
+=== Resources
+
+.Additional resources
+[options="header"]
+|===
+|Link|Description
+|http://training.play-with-docker.com/|Labs and tutorials on a wide breadth of topics.
+|http://labs.play-with-docker.com/|Practice with Docker commands right from your browser. No need to install anything.
+|https://www.katacoda.com/courses/docker|Practice with Docker commands right from your browser. No need to install anything.
+|https://prakhar.me/docker-curriculum/|A nice basics tutorial by Prakhar Srivastav from Google
+|https://github.com/dwyl/learn-docker|Another basic tutorial with a lot of screenshots
+|https://github.com/veggiemonk/awesome-docker|Collection of even more awesome Docker resources
+|https://github.com/machzqcq/docker-for-all|Learn more about applying Docker in development, devops, testing, product management etc.
+|===
+
+== Feel free to share and improve
+
+This material is free and will stay available on this url: http://bolcom.github.io/docker-for-testers/.
+
+Feel free to share it with anyone that might benefit.
+
+We also welcome feedback of any kind, please create an issue or pull request through https://github.com/bolcom/docker-for-testers[GitHub].

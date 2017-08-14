@@ -2,6 +2,9 @@
 
 This repository contains training material for testers that want to get started with http://www.docker.com[Docker]. It was developed by engineers at http://www.bol.com[bol.com].
 
+== Just here for the tutorial?
+Checkout https://bolcom.github.io/docker-for-testers/
+
 == Building the course material
 NOTE: You must have a recent version of the http://www.oracle.com/technetwork/java/javase/downloads/index.html[JDK] installed to build the course material.
 
