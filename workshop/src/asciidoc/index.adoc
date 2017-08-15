@@ -6,19 +6,26 @@ image:docker-logo.png[width=250,height=250]
 
 = Docker for testers
 
-**The purpose of this training is to learn how to use Docker on your local machine.**
+Docker is both an enormously powerful and popular tool, which is quickly being adopted by development and operations. However, it is also highly usable for testers, enabling isolation, independence and shorter feedback loops.
 
-After finishing the training you will know how to:
+In this workshops you will become familiar with the basic concepts of Docker and how you can use Docker to create isolated test environments.
+
+The workshop revolves around several assignments concerning a webserver running in a Docker container, which we will extend with data from a dockerized database and against which we will run Selenium tests using public Docker images for a Selenium grid.
+
+**The purpose of this workshop is to learn how to use Docker on your local machine.** Afterwards, it is up to you to explore the rest of the Docker ecosystem!
+
+== Topics
+After finishing the workshop you will know how to:
 
 * Start and stop containers
 * Build your own images
 * Run your own test database with test data
 * Run your own Selenium Grid for web testing
 
-The training is structured as follows: first theory, followed by practice, with every step building on the previous step.
+== Structure
+The workshop is structured as follows: a little theory, followed by practice, with every next assignment building on the previous.
 
-[NOTE]
-You can find the slides of the presentation on https://docs.google.com/presentation/d/1EiW9Ou-5a-Do_MqCZrLvU_YMbDwxMbjzMMJmX1ubauE/[Google Drive]
+There is enough information in this document to finish the assignments, but we encourage you to have a look at the links in the assignment. Exploring and experimenting outside of the examples is a great way to create a better understanding for yourself.
 
 include::./installation.adoc[leveloffset=+1]
 

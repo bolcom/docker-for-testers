@@ -1,7 +1,7 @@
 = Hello World!
 *Let's get started!*
 
-Let's begin with verifying that your Docker setup is correct and that you can issue commands.
+We will begin with verifying that your Docker setup is correct and that you can issue commands.
 
 .Open a command prompt and run:
 ----
@@ -9,6 +9,10 @@ docker run hello-world
 ----
 
 This should show you a `Hello from Docker!` message and additional details on what happened under the hood.
+
+++++
+<script type="text/javascript" src="https://asciinema.org/a/PfomqPsOooWmGaRneJZnnAg8Y.js" id="asciicast-PfomqPsOooWmGaRneJZnnAg8Y" async data-rows=30></script>
+++++
 
 .Breaking down the command
 Let's have a closer look at what the command we've just run actually means.
