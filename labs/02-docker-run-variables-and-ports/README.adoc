@@ -22,7 +22,7 @@ https://docs.docker.com/engine/reference/run/#expose-incoming-ports
 
 .List the details of the newest container
 ----
-docker ps -l
+docker ps --latest
 ----
 
 .Find your container ID in the output
