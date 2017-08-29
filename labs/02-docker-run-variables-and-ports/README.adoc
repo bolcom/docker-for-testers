@@ -10,6 +10,16 @@ docker run -d -P training/webapp python app.py
 
 This runs the `training/webapp`-image in detached (`-d`) mode, exposing all ports (`-P`), calling `python` inside the container with one argument `app.py`, which is a script inside the container.
 
+****
+.About detached and foreground mode
+If you don't specify a mode, by default, a freshly started container will run in foreground mode. This means that the terminal will attach to the process running in the container and that you will see it's output. You cannot use your terminal window anymore, until the process in the container closes.
+By specifying the `-d`-flag the container will run in the background and the run command will return the container id.
+Read more about the differences between detached and foreground mode https://docs.docker.com/engine/reference/run/#detached-vs-foreground[here].
+
+.About exposing ports
+https://docs.docker.com/engine/reference/run/#expose-incoming-ports
+****
+
 .List the details of the newest container
 ----
 docker ps -l
@@ -38,6 +48,9 @@ After you've seen the `Hello world-message` you might want to inspect the logs o
 docker logs <container id or name>
 ----
 You should see `GET` commands on the root (/) of your webserver.
+++++
+<script type="text/javascript" src="https://asciinema.org/a/RYLATesUC7J1Qhq4yD2Kjn3qI.js" id="asciicast-RYLATesUC7J1Qhq4yD2Kjn3qI" async data-rows=8></script>
+++++
 
 == Passing environment variables to a container
 A lot of containers are configurable using environment variables that you can pass in at startup with the `-e` flag.

@@ -11,12 +11,16 @@ This is easily resolved by running
 
 or add the --rm flag when starting the container, which will delete the container as soon as it stops.
 
+[[want-more]]
 == Want more?
 
 We can imagine this workshop has left you wanting for more. Whether you want to read some more, or do more practical assignments, we've got you covered. Check out the links below.
 
-=== Resources
+=== Topics to explore
 
+- Using Docker containers during your build tool
+
+=== Links
 .Additional resources
 [options="header"]
 |===
@@ -28,11 +32,14 @@ We can imagine this workshop has left you wanting for more. Whether you want to 
 |https://github.com/dwyl/learn-docker|Another basic tutorial with a lot of screenshots
 |https://github.com/veggiemonk/awesome-docker|Collection of even more awesome Docker resources
 |https://github.com/machzqcq/docker-for-all|Learn more about applying Docker in development, devops, testing, product management etc.
+|https://github.com/fabric8io/docker-maven-plugin|Integrate Docker with your build tool using the Docker Maven plugin
+|https://github.com/bmuschko/gradle-docker-plugin|Integrate Docker with your build tool with the Gradle plugin
+|https://thenewstack.io/ebooks/|E-books on automation, monitoring, security, network & storage of Docker containers
 |===
 
 == Feel free to share and improve
 
-This material is free and will stay available on this url: http://bolcom.github.io/docker-for-testers/.
+This material is free and will stay available at this url: http://bolcom.github.io/docker-for-testers/.
 
 Feel free to share it with anyone that might benefit.
 

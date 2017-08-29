@@ -1,9 +1,11 @@
 :toclevels: 4
 :imagesdir: ./images
+:sectlinks:
 
 [.center]
 image:docker-logo.png[width=250,height=250]
 
+[title]
 = Docker for testers
 
 Docker is both an enormously powerful and popular tool, which is quickly being adopted by development and operations. However, it is also highly usable for testers, enabling isolation, independence and shorter feedback loops.
@@ -12,7 +14,8 @@ In this workshops you will become familiar with the basic concepts of Docker and
 
 The workshop revolves around several assignments concerning a webserver running in a Docker container, which we will extend with data from a dockerized database and against which we will run Selenium tests using public Docker images for a Selenium grid.
 
-**The purpose of this workshop is to learn how to use Docker on your local machine.** Afterwards, it is up to you to explore the rest of the Docker ecosystem!
+[NOTE]
+**The purpose of this workshop is to learn how to use Docker on your local machine.** Afterwards, it is up to you to explore the rest of the Docker ecosystem! We've gathered some of the best resources in the <<Want more?>> section to get you started.
 
 == Topics
 After finishing the workshop you will know how to:
@@ -26,6 +29,26 @@ After finishing the workshop you will know how to:
 The workshop is structured as follows: a little theory, followed by practice, with every next assignment building on the previous.
 
 There is enough information in this document to finish the assignments, but we encourage you to have a look at the links in the assignment. Exploring and experimenting outside of the examples is a great way to create a better understanding for yourself.
+
+=== Layout
+
+We use the following layout cues to indicate different types of information.
+
+----
+A command you should run in your terminal
+or
+code to copy and paste
+----
+
+[TIP]
+An invitation to explore
+
+[NOTE]
+Optional information to help you with the assignments
+
+****
+Theory and clarification of the assignments
+****
 
 include::./installation.adoc[leveloffset=+1]
 
