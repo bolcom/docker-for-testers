@@ -18,7 +18,9 @@ We can imagine this workshop has left you wanting for more. Whether you want to 
 
 === Topics to explore
 
-- Using Docker containers during your build tool
+- Using Docker containers together with your build tool to create an environment during the build
+- Take a tour of the https://docs.docker.com/engine/docker-overview/#the-underlying-technology[underlying technology] Docker uses to provide isolation.
+- Explore the rest of the https://github.com/machzqcq/docker-for-all[Docker ecosystem], how to run Docker containers in the cloud etc.
 
 === Links
 .Additional resources
@@ -35,6 +37,7 @@ We can imagine this workshop has left you wanting for more. Whether you want to 
 |https://github.com/fabric8io/docker-maven-plugin|Integrate Docker with your build tool using the Docker Maven plugin
 |https://github.com/bmuschko/gradle-docker-plugin|Integrate Docker with your build tool with the Gradle plugin
 |https://thenewstack.io/ebooks/|E-books on automation, monitoring, security, network & storage of Docker containers
+|https://diveintodocker.com/|Paid course with tons of content (no affiliation)|
 |===
 
 == Feel free to share and improve

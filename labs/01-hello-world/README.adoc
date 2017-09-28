@@ -8,19 +8,30 @@ We will begin with verifying that your Docker setup is correct and that you can 
 docker run hello-world
 ----
 
+[NOTE]
+On Windows you might have to start the Quickstart terminal.
+
 This should show you a `Hello from Docker!` message and additional details on what happened under the hood.
 
 ++++
 <script type="text/javascript" src="https://asciinema.org/a/PfomqPsOooWmGaRneJZnnAg8Y.js" id="asciicast-PfomqPsOooWmGaRneJZnnAg8Y" async data-rows=30></script>
 ++++
 
+[TIP]
 .Breaking down the command
 Let's have a closer look at what the command we've just run actually means.
 ****
 <docker> <run> <hello-world>
 ----
-1: docker command itself
-2: the run instruction we've given to docker to start a container from an image (try running docker run --help)
-3: the name of the docker image you want to run (hello-world)
+docker: docker client itself
+run: the command we've given to Docker, which starts a container from an image (try running docker run --help)
+hello-world: the name of the docker image we want to run
 ----
 ****
+
+== Client, daemon and registry
+
+image:architecture.png[width=937,height=500]
+
+The client is responsible for relaying the commands we give on the command line to the Docker daemon, which is running on the Docker host. Client and daemon are not necessarily running on the same machine.
+The daemon does all the heavy lifting: building images, starting containers or retrieving images from the internet such as the Docker Hub.

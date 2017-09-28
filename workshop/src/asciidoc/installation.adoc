@@ -23,7 +23,7 @@ If you encounter the message "VT-x/AMD-v has to be enabled", please enable "Inte
 = Reference material
 
 == Presentation
-You can find the slides of the presentation on https://docs.google.com/presentation/d/1EiW9Ou-5a-Do_MqCZrLvU_YMbDwxMbjzMMJmX1ubauE/[Google Drive].
+You can find the slides of the presentation on https://docs.google.com/presentation/d/e/2PACX-1vQHlN3M4JyKT7lBUZeredvSw93gUoUhAJBSE2zTyEP9LHqO9AhvOTQIVIWz3op6feL_3rTVYFDDGdvx/pub?start=false&loop=false&delayms=3000[Google Drive].
 
 == Download the zip (optional)
 If you like, you can link:{project-name}.zip[download] all the assignments for offline viewing.
