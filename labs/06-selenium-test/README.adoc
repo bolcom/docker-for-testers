@@ -20,7 +20,7 @@ docker run --rm --name selenium -d --network training -p 4444:4444 -p 5900:5900 
 ----
 
 == Connect with VNC
-In order to monitor test progress we can connect with https://www.realvnc.com/download/viewer/[VNC viewer] to the Selenium node after we've started it.
+In order to monitor test progress we can connect with https://www.realvnc.com/download/viewer/[VNC viewer, window="_blank"] to the Selenium node after we've started it.
 The VNC server is listening on port 5900, the password is `secret`.
 
 == Adjust SimpleTest
@@ -28,9 +28,9 @@ We've prepared a simple Java project to test whether the `webserver` displays th
 Adjust the message you added to the database in the SimpleTest.java file. This file can be found inside the selenium-grid-docker directory.
 
 == Execute your test
-We will use the official https://hub.docker.com/_/maven/[Maven] image (`maven:3.3.9-jdk-8-alpine`) to build and execute our test.
+We will use the official https://hub.docker.com/_/maven/[Maven, window="_blank"] image (`maven:3.3.9-jdk-8-alpine`) to build and execute our test.
 
-This image provides a Java environment and Maven (a Java build tool) to execute the project. In order to make the project files, which are on your local machine, available to the container we will mount the `selenium-grid-docker` directory as a https://docs.docker.com/engine/tutorials/dockervolumes/#/mount-a-host-directory-as-a-data-volume[volume] for the container.
+This image provides a Java environment and Maven (a Java build tool) to execute the project. In order to make the project files, which are on your local machine, available to the container we will mount the `selenium-grid-docker` directory as a https://docs.docker.com/engine/tutorials/dockervolumes/#/mount-a-host-directory-as-a-data-volume[volume, window="_blank"] for the container.
 
 [NOTE]
 Make sure that your command prompt is in the `selenium-grid-docker` directory.
@@ -40,9 +40,9 @@ Make sure that your command prompt is in the `selenium-grid-docker` directory.
 
 === Additional Windows/Docker toolbox details
 NOTE: On Windows/GIT Bash/Cygwin you may get the following error `the input device is not a TTY. If you are using mintty, try prefixing the command with 'winpty'`.
-Run the command again with `winpty` in front of it. Refer to this http://willi.am/blog/2016/08/08/docker-for-windows-interactive-sessions-in-mintty-git-bash/[page] for details.
+Run the command again with `winpty` in front of it. Refer to this http://willi.am/blog/2016/08/08/docker-for-windows-interactive-sessions-in-mintty-git-bash/[page, window="_blank"] for details.
 
-NOTE: Before we can mount a volume on Windows when using Docker Machine we need to make a shared folder in Virtual Box first. See step 3 of this https://blog.pavelsklenar.com/5-useful-docker-tip-and-tricks-on-windows/[page].
+NOTE: Before we can mount a volume on Windows when using Docker Machine we need to make a shared folder in Virtual Box first. See step 3 of this https://blog.pavelsklenar.com/5-useful-docker-tip-and-tricks-on-windows/[page, window="_blank"].
 
 == Considerations
 

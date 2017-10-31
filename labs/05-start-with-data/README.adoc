@@ -2,7 +2,7 @@
 
 *Having to insert the data every time you start a container can become a hassle. In this exercise we will create our own version of the Postgres image and bake our data into it. That way the data will always be available on startup.*
 
-The https://hub.docker.com/_/postgres/[Postgres] image provides a convenient way to execute scripts on startup of your database. All we have to do is add a `.sh` script to the `docker-entrypoint-initdb.d-folder`. Follow the steps below for detailed instructions.
+The https://hub.docker.com/_/postgres/[Postgres, window="_blank"] image provides a convenient way to execute scripts on startup of your database. All we have to do is add a `.sh` script to the `docker-entrypoint-initdb.d-folder`. Follow the steps below for detailed instructions.
 
 [NOTE]
 If you still have containers running, please stop them now.
@@ -26,8 +26,8 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
 EOSQL
 ----
 - Create a `Dockerfile` in the folder that
-.. Is built https://docs.docker.com/engine/reference/builder/#/from[from] postgres:9
-.. https://docs.docker.com/engine/reference/builder/#/add[Adds] the `.sh` file to the `docker-entrypoint-initdb.d` folder in the container
+.. Is built https://docs.docker.com/engine/reference/builder/#/from[from, window="_blank"] postgres:9
+.. https://docs.docker.com/engine/reference/builder/#/add[Adds, window="_blank"] the `.sh` file to the `docker-entrypoint-initdb.d` folder in the container
 - Build the image as `database` and run it as part of the training network
 - Run a `webserver` container and make it part of the training network
 

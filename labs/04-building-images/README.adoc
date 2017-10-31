@@ -40,10 +40,10 @@ In order to build a Docker image yourself you need a https://docs.docker.com/eng
 == Building the new image
 We now have to instruct Docker to pickup the Dockerfile and build it with the tag `webserver`.
 
-NOTE: Make sure your working directory is `docker-images/webserver`
+NOTE: Make sure your working directory is `docker-images/`
 
 .Build the new image with a tag
- docker build -t webserver .
+ docker build -t webserver webserver/
 
 NOTE: Read the documentation of the build command: `docker build --help`
 
@@ -97,4 +97,4 @@ For interactive processes (like a shell), you must use -i -t together in order t
 
 .Error on Windows: `the input device is not a TTY.`
 NOTE: On Windows/GIT Bash/Cygwin you may get the following error `the input device is not a TTY. If you are using mintty, try prefixing the command with 'winpty'`.
-Run the command again with `winpty` in front of it. Refer to this http://willi.am/blog/2016/08/08/docker-for-windows-interactive-sessions-in-mintty-git-bash/[page] for details.
+Run the command again with `winpty` in front of it. Refer to this http://willi.am/blog/2016/08/08/docker-for-windows-interactive-sessions-in-mintty-git-bash/[page, window="_blank"] for details.
