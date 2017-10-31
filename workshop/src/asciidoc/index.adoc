@@ -1,6 +1,7 @@
 :toclevels: 4
 :imagesdir: ./images
 :sectlinks:
+:linkattrs:
 
 [.center]
 image:docker-logo.png[width=250,height=250]
