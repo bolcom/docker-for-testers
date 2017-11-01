@@ -64,7 +64,7 @@ Luckily, we can use an off-the-shelf image provided by https://hub.docker.com/_/
 
 .Run the Postgres image with a variable to set the password. Also notice the "--network training" parameter.
 ----
-docker run --rm --network training --name database -e POSTGRES_PASSWORD=testnet -d postgres
+docker run --rm --network training --name database -e POSTGRES_PASSWORD=eurostar -d postgres
 ----
 
 Use the following command to inspect the docker container network:
@@ -81,10 +81,10 @@ Because you may not have a Postgres database client installed we start another c
 This starts a new instance of the `postgres` image in interactive mode (`-it`), removes it after stopping the container (`--rm`), makes it part of the `training`-network and executes `psql -h database -U postgres` inside the container in order to connect to the running database container.
 
 .Execute commands in the running database to prepare data
- CREATE DATABASE testnet;
- \c testnet
+ CREATE DATABASE eurostar;
+ \c eurostar
  CREATE TABLE kv (key varchar(100) PRIMARY KEY, value varchar(100));
- INSERT INTO kv VALUES ('provider','testnet on pg');
+ INSERT INTO kv VALUES ('provider','eurostar on pg');
  SELECT * FROM kv; -- Check that the data is really there
  \q
 
