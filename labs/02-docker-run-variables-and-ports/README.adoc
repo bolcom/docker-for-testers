@@ -39,7 +39,7 @@ NOTE: If you are using Docker Toolbox, you can't use localhost, but have to use 
 ----
 The site should say `Hello world!`.
 ++++
-<script type="text/javascript" src="https://asciinema.org/a/eZjPnQ0UMrDfiWsaZbu1ExoIK.js" id="asciicast-eZjPnQ0UMrDfiWsaZbu1ExoIK" async data-rows=9></script>
+<asciinema-player src="screencast/training-webapp.json" rows="9"></asciinema-player>
 ++++
 
 == Inspecting the logs
@@ -51,7 +51,7 @@ docker logs <container id or name>
 ----
 You should see `GET` commands on the root (/) of your webserver.
 ++++
-<script type="text/javascript" src="https://asciinema.org/a/RYLATesUC7J1Qhq4yD2Kjn3qI.js" id="asciicast-RYLATesUC7J1Qhq4yD2Kjn3qI" async data-rows=8></script>
+<asciinema-player src="screencast/get-request.json" rows="8"></asciinema-player>
 ++++
 
 == Passing environment variables to a container
