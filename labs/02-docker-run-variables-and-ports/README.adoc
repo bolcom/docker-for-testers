@@ -14,16 +14,19 @@ This runs the `training/webapp`-image in detached (`-d`) mode, exposing all port
 [TIP]
 .About detached and foreground mode
 If you don't specify a mode, by default, a freshly started container will run in foreground mode. This means that the terminal will attach to the process running in the container and that you will see it's output. You cannot use your terminal window anymore, until the process in the container closes.
-By specifying the `-d`-flag the container will run in the background and the run command will return the container id.
+By specifying the `-d` flag the container will run in the background and the run command will return the container id.
 Read more about the differences between detached and foreground mode https://docs.docker.com/engine/reference/run/#detached-vs-foreground[here, window="_blank"].
+****
 
+.List the details of the newest container
+The last command will have started a new container, which runs a webserver on port 5000. However, if you go to http://localhost:5000[http://localhost:5000, window="_blank"], you will notice that the site will not load. This is because the container port 5000 isn't mapped to port 5000 on your host machine. The `-P` flag will have mapped a random port on your machine to the 5000 port of the container.
+****
 [TIP]
 .About exposing ports
 By exposing ports you ensure that the process running in the container is reachable on a port on the host machine. These ports do not need to be the same. For example, if you have a container that runs a webserver on port 8080, you can expose the webserver on port 80 of your host machine.
 If you want to find out more about exposing ports https://docs.docker.com/engine/reference/run/#expose-incoming-ports[read the Docker documentation., window="_blank"]
 ****
-
-.List the details of the newest container
+.Figure out which port it is available on by running the command below.
 ----
 docker ps --latest
 ----
@@ -33,7 +36,7 @@ image:docker-ps.png[width=2000,height=74]
 
 .Check out the website!
 ----
-Go to http://localhost:32769 (the port number left of the -> in the docker ps command output)
+Go to http://localhost:32769 (replace the port with the port number left of the -> in the docker ps command output)
 
 NOTE: If you are using Docker Toolbox, you can't use localhost, but have to use the IP of your Docker virtual machine. Run `docker-machine ls` to find out the name of your Docker Machine. Run `docker-machine ip <machine name>` to find the IP. Then go to http://<ip>:<port>.
 ----
@@ -54,13 +57,19 @@ You should see `GET` commands on the root (/) of your webserver.
 <asciinema-player src="screencast/get-request.json" rows="8"></asciinema-player>
 ++++
 
-== Passing environment variables to a container
-A lot of containers are configurable using environment variables that you can pass in at startup with the `-e` flag.
+== Configuring containers through environment variables
+When using containers you'll want to use the same version of the container across all environments. https://sroze.io/why-i-think-we-should-all-use-immutable-docker-images-9f4fdcb5212f[This maximizes portability and predictability, window="_blank"]. But, a container running on a test environment should probably use different resources and dependencies than a container running on production.
+
+Environment variables are an excellent way to inject this configuration. Most containers are configurable using environment variables that you can pass in at startup with the `-e` flag.
+****
+[TIP]
+Environment variables are a set of dynamic, named values that can affect the way running processes will behave on a computer. They are part of the environment in which a process runs. https://en.wikipedia.org/wiki/Environment_variable[Wikipedia, window="_blank"]
+****
+
+.Change the welcome message displayed on the website
 We'll use the container's `PROVIDER` environment variable to pass in your name so it will be shown when you visit the website.
 
-NOTE: Environment variables are a set of dynamic, named values that can affect the way running processes will behave on a computer. They are part of the environment in which a process runs. https://en.wikipedia.org/wiki/Environment_variable[Wikipedia, window="_blank"]
-
-.Start a container with an environment variable
+.Start a container with the PROVIDER environment variable
 ----
 docker run -d -P -e PROVIDER="Your name" training/webapp python app.py
 ----
@@ -89,5 +98,5 @@ Of course, at times you may want to have more control over the ports you are run
 Figure out how to start another `training/webapp` container mapping a specific port (80) to the exposed port of the container (5000).
 Afterwards you should be able to see the Hello-message on http://localhost:80[http://localhost:80,window="_blank"].
 
-NOTE: Start by checking the https://docs.docker.com/engine/reference/run/#/expose-incoming-ports[documentation of the run command, window="_blank"] or execute: `docker run --help`. Also figure out what the -d parameter is doing by checking the documentation.
+NOTE: If you get stuck mapping the 5000 port of the container to port 80 of the host, start by checking the https://docs.docker.com/engine/reference/run/#/expose-incoming-ports[documentation,window="_blank"] of the run command (look at the EXPOSE section).
 

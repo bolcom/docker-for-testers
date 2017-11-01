@@ -10,9 +10,9 @@ image:postgres-container.png[width=380,height=350]
 In order to add the ability to connect to a database we have to change a number of things:
 
 . Expand the original image
-.. Add Python dependencies to enable connections to a Postgres database
-.. Replace the original Python application with our version
-. Setup a docker network
+.. Install Python dependencies in the container to enable connections to a Postgres database
+.. Replace the original Python application with our new version that uses the database
+. Setup a docker network so that the `webserver` can get its data from the `database` container
 . Run a database with data
 .. Run a Postgres database image
 .. Add our data to the running database
@@ -25,15 +25,16 @@ The following sections will discuss all these steps one-by-one.
 In order to build a Docker image yourself you need a https://docs.docker.com/engine/reference/builder/[Dockerfile]. In this case we will supply you with the Dockerfile necessary to create the image. But you will have to run the build process yourself to make the image available to your Docker daemon.
 
 . Download the https://github.com/bolcom/docker-for-testers/archive/master.zip[workshop zip file] and unzip it on your local harddisk
-. Go to `docker-images/webserver` folder
-. Review the Dockerfile to understand what we are building
+. Look at the Dockerfile in the `docker-images/webserver` folder
 
- [a] FROM training/webapp
- [b] RUN apt-get -y update && apt-get -y install libpq-dev python-dev
-     RUN pip install pygresql
- [c] ADD app.py /opt/webapp/app.py
+ FROM training/webapp                                             [a]
+ ENV DEBIAN_FRONTEND=noninteractive                               [b]
+ RUN apt-get -y update && apt-get -y install libpq-dev python-dev [c]
+ RUN pip install pygresql                                         [c]
+ ADD app.py /opt/webapp/app.py                                    [d]
 
 .. We use the `training/webapp` image as a base-image
+.. We set the DEBIAN_FRONTEND environment variable to make sure that the next command runs in noninteractive mode
 .. We run 2 commands inside the container to install python and pygresql (a library that lets python code talk to PostgreSQL)
 .. We overwrite the existing `app.py` file with our new `app.py` file that will check the database.
 

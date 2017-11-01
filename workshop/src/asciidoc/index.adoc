@@ -35,6 +35,8 @@ The workshop is structured as follows: a little theory, followed by practice, wi
 
 There is enough information in this document to finish the assignments, but we encourage you to have a look at the links in the assignment. Exploring and experimenting outside of the examples is a great way to create a better understanding for yourself.
 
+The goal of the workshop is not to finish all the assignments, but to learn as much as possible. The assignments will stay available online, to be finished whenever you like.
+
 === Layout
 
 We use the following layout cues to indicate different types of information.
