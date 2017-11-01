@@ -14,7 +14,7 @@ On Windows you might have to start the Quickstart terminal.
 This should show you a `Hello from Docker!` message and additional details on what happened under the hood.
 
 ++++
-<script type="text/javascript" src="https://asciinema.org/a/PfomqPsOooWmGaRneJZnnAg8Y.js" id="asciicast-PfomqPsOooWmGaRneJZnnAg8Y" async data-rows=30></script>
+<asciinema-player src="screencast/hello-world.json" rows="30"></asciinema-player>
 ++++
 
 [TIP]

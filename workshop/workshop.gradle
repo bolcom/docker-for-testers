@@ -41,6 +41,9 @@ asciidoctor {
     resources {
         from(projectDir) {
             include '/src/asciidoc/images/**'
+            include '/src/asciidoc/js/**'
+            include '/src/asciidoc/css/**'
+            include '/src/asciidoc/screencast/**'
             excludePatterns.each { pattern ->
                 exclude "${pattern}"
             }

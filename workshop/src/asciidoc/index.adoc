@@ -3,6 +3,10 @@
 :sectlinks:
 :linkattrs:
 
+++++
+<link rel="stylesheet" type="text/css" href="css/asciinema-player.css" />
+++++
+
 [.center]
 image:docker-logo.png[width=250,height=250]
 
@@ -63,3 +67,7 @@ include::../../../labs/06-selenium-test/README.adoc[leveloffset=+1]
 include::../../../labs/07-additional-assignments/README.adoc[leveloffset=+1]
 
 include::./appendix.adoc[leveloffset=+1]
+
+++++
+<script src="js/asciinema-player.js"></script>
+++++
