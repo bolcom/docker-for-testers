@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "width": 204,
+  "height": 49,
+  "duration": 6.964338,
+  "command": null,
+  "title": null,
+  "env": {
+    "TERM": "xterm-256color",
+    "SHELL": "/bin/bash"
+  },
+  "stdout": [
+    [
+      0.011638,
+      "\u001b[?1034hbash-3.2$ "
+    ],
+    [
+      0.477339,
+      "d"
+    ],
+    [
+      0.135883,
+      "o"
+    ],
+    [
+      0.088141,
+      "c"
+    ],
+    [
+      0.079816,
+      "k"
+    ],
+    [
+      0.10377,
+      "e"
+    ],
+    [
+      0.063822,
+      "r"
+    ],
+    [
+      0.112561,
+      " "
+    ],
+    [
+      0.319841,
+      "r"
+    ],
+    [
+      0.087972,
+      "u"
+    ],
+    [
+      0.167374,
+      "n"
+    ],
+    [
+      0.080728,
+      " "
+    ],
+    [
+      0.111925,
+      "h"
+    ],
+    [
+      0.119993,
+      "e"
+    ],
+    [
+      0.112019,
+      "l"
+    ],
+    [
+      0.14396,
+      "l"
+    ],
+    [
+      0.159869,
+      "o"
+    ],
+    [
+      0.215886,
+      "-"
+    ],
+    [
+      0.095724,
+      "w"
+    ],
+    [
+      0.104259,
+      "o"
+    ],
+    [
+      0.080236,
+      "r"
+    ],
+    [
+      0.095494,
+      "l"
+    ],
+    [
+      0.096411,
+      "d"
+    ],
+    [
+      0.135337,
+      "\r\n"
+    ],
+    [
+      0.025378,
+      "Unable to find image 'hello-world:latest' locally\r\n"
+    ],
+    [
+      1.254015,
+      "latest: Pulling from library/hello-world\r\n\r\n\u001b[1A\u001b[1K\u001b[K\rb04784fba78d: Pulling fs layer \r\u001b[1B"
+    ],
+    [
+      0.582651,
+      "\u001b[1A\u001b[1K\u001b[K\rb04784fba78d: Downloading [==================================================>]     972B/972B\r\u001b[1B"
+    ],
+    [
+      7.2e-05,
+      "\u001b[1A\u001b[1K\u001b[K\rb04784fba78d: Verifying Checksum \r\u001b[1B\u001b[1A\u001b[1K\u001b[K\rb04784fba78d: Download complete \r\u001b[1B\u001b[1A"
+    ],
+    [
+      3e-05,
+      "\u001b[1K\u001b[K\rb04784fba78d: Extracting [==================================================>]     972B/972B\r\u001b[1B"
+    ],
+    [
+      0.004755,
+      "\u001b[1A\u001b[1K\u001b[K\rb04784fba78d: Extracting [==================================================>]     972B/972B\r\u001b[1B"
+    ],
+    [
+      0.216375,
+      "\u001b[1A\u001b[1K\u001b[K\rb04784fba78d: Pull complete \r\u001b[1B"
+    ],
+    [
+      0.086411,
+      "Digest: sha256:f3b3b28a45160805bb16542c9531888519430e9e6d6ffc09d72261b0d26ff74f\r\n"
+    ],
+    [
+      0.05423,
+      "Status: Downloaded newer image for hello-world:latest\r\n"
+    ],
+    [
+      0.825499,
+      "\r\nHello from Docker!\r\nThis message shows that your installation appears to be working correctly.\r\n\r\nTo generate this message, Docker took the following steps:\r\n 1. The Docker client contacted the Docker daemon.\r\n 2. The Docker daemon pulled the \"hello-world\" image from the Docker Hub.\r\n 3. The Docker daemon created a new container from that image which runs the\r\n    executable that produces the output you are currently reading.\r\n 4. The Docker daemon streamed that output to the Docker client, which sent it\r\n    to your terminal.\r\n\r\nTo try something more ambitious, you can run an Ubuntu container with:\r\n $ docker run -it ubuntu bash\r\n\r\nShare images, automate workflows, and more with a free Docker ID:\r\n https://cloud.docker.com/\r\n\r\nFor more examples and ideas, visit:\r\n https://docs.docker.com/engine/userguide/\r\n\r\n"
+    ],
+    [
+      0.711462,
+      "bash-3.2$ "
+    ]
+  ]
+}
