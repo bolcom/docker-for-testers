@@ -27,12 +27,13 @@ EOSQL
 ----
 - Create a `Dockerfile` in the folder that
 .. Is built https://docs.docker.com/engine/reference/builder/#/from[from, window="_blank"] postgres:9
-.. https://docs.docker.com/engine/reference/builder/#/add[Adds, window="_blank"] the `.sh` file to the `docker-entrypoint-initdb.d` folder in the container
-- Build the image as `database` and run it as part of the training network
-- Run a `webserver` container and make it part of the training network
+.. https://docs.docker.com/engine/reference/builder/#/add[Adds, window="_blank"] the `.sh` file to the `docker-entrypoint-initdb.d` folder in the container. Postgres will run any *.sql files and source any *.sh scripts found in this directory to do further initialization before starting the service.
+- Build the image with the name `database`
+- Run the newly build image as part of the training network
+- Run a `webserver` container and also make it part of the training network
 
 You should see the message 'Now getting data from Postgres!' if you visit the web app.
 
 [NOTE]
-On Windows you may have to run dos2unix on your .sh file before you can build the image. This will fix the line-endings in the script and allow it to be executed by the database image. Alternatively you can open the .sh file in Notepad++ and change the line endings to UNIX style.
+On Windows you may have to run https://waterlan.home.xs4all.nl/dos2unix.html#DOS2UNIX[dos2unix, window="_blank"] on your .sh file before you can build the image. This will fix the line-endings in the script and allow it to be executed by the database image. Alternatively you can open the .sh file in Notepad++ and change the line endings to UNIX style.
 

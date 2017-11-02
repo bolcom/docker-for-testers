@@ -1,7 +1,11 @@
 = Checking whether the webpage is displayed correctly
-*Spinning up your own Selenium containers can be convenient if you want to test a site with a specific browser and don't want to bother with configuration of machines.*
+Now that we have our `webserver` and `database` we'll want to run automated checks to verify that the correct text is being displayed.
+To that end we are going to add two containers to our setup. One container running a Selenium Hub and one container executing our test.
 
-In this exercise we will run our `webserver` and verify that the displayed page has the correct content, using a browser supplied by Selenium.
+****
+[TIP]
+Spinning up your own Selenium containers can be convenient if you want to test a site with a specific browser and don't want to bother with configuration of machines.
+****
 
 == Preparing the test environment
 image:container-overview.png[width=380,height=350]
@@ -32,11 +36,10 @@ We will use the official https://hub.docker.com/_/maven/[Maven, window="_blank"]
 
 This image provides a Java environment and Maven (a Java build tool) to execute the project. In order to make the project files, which are on your local machine, available to the container we will mount the `selenium-grid-docker` directory as a https://docs.docker.com/engine/tutorials/dockervolumes/#/mount-a-host-directory-as-a-data-volume[volume, window="_blank"] for the container.
 
-[NOTE]
-Make sure that your command prompt is in the `selenium-grid-docker` directory.
-
 .Execute this command to start the test
  docker run -it --rm --name my-maven-project --network training -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3.3.9-jdk-8-alpine mvn clean install
+[NOTE]
+Make sure that your command prompt is in the `selenium-grid-docker` directory.
 
 === Additional Windows/Docker toolbox details
 NOTE: On Windows/GIT Bash/Cygwin you may get the following error `the input device is not a TTY. If you are using mintty, try prefixing the command with 'winpty'`.
