@@ -14,7 +14,7 @@ On Windows you might have to start the Docker Quickstart terminal.
 This should show you a `Hello from Docker!` message and additional details on what happened under the hood.
 
 ++++
-<asciinema-player src="screencast/hello-world.json" rows="30"></asciinema-player>
+<asciinema-player src="screencast/hello-world.json" rows="30" cols="204"></asciinema-player>
 ++++
 
 [TIP]

@@ -21,11 +21,11 @@ In order to add the ability to connect to a database we have to change a number 
 
 The following sections will discuss all these steps one-by-one.
 
-== Changes to the image
+== Understanding the Dockerfile used to build the image
 In order to build a Docker image yourself you need a https://docs.docker.com/engine/reference/builder/[Dockerfile]. In this case we will supply you with the Dockerfile necessary to create the image. But you will have to run the build process yourself to make the image available to your Docker daemon.
 
 . Download the https://github.com/bolcom/docker-for-testers/archive/master.zip[workshop zip file] and unzip it on your local harddisk
-. Look at the Dockerfile in the `docker-images/webserver` folder
+. Look at the Dockerfile in the `docker-images/webserver` folder.
 
  FROM training/webapp                                             [a]
  ENV DEBIAN_FRONTEND=noninteractive                               [b]
@@ -33,13 +33,15 @@ In order to build a Docker image yourself you need a https://docs.docker.com/eng
  RUN pip install pygresql                                         [c]
  ADD app.py /opt/webapp/app.py                                    [d]
 
+Each line in the Dockerfile is explained below:
+
 .. We use the `training/webapp` image as a base-image
 .. We set the DEBIAN_FRONTEND environment variable to make sure that the next command runs in noninteractive mode
 .. We run 2 commands inside the container to install python and pygresql (a library that lets python code talk to PostgreSQL)
 .. We overwrite the existing `app.py` file with our new `app.py` file that will check the database.
 
 == Building the new image
-We now have to instruct Docker to pickup the Dockerfile and build it with the tag `webserver`.
+We now have to instruct Docker to use the Dockerfile and build it. Additionally, we assign the tag `webserver` to the new image.
 
 NOTE: Make sure your working directory is `docker-images/`
 
@@ -48,15 +50,17 @@ NOTE: Make sure your working directory is `docker-images/`
 
 NOTE: Read the documentation of the build command: `docker build --help`
 
-== Setup a docker network
-If we want docker containers to be able to reach each other, we need to setup a https://docs.docker.com/engine/userguide/networking/[docker container network]. To create a docker network called "training" we need to run the following command:
+The command should exit output similar to:
 
+    Successfull
+    Successfully tagged webserver:latest
+
+== Setup a docker network
+If we want docker containers to be able to reach each other, we need to setup a https://docs.docker.com/engine/userguide/networking/[docker container network].
+A Docker network automatically allows Docker containers to reach each other by container name, as long as they are part of the same network. This works via the https://docs.docker.com/engine/userguide/networking/#/docker-embedded-dns-server[DNS server] on the Docker daemon.  To create a docker network called "training" we need to run the following command:
 ----
 docker network create training
 ----
-
-[NOTE]
-A Docker network automatically allows Docker containers to reach each other by container name, as long as they are part of the same network. This works via the https://docs.docker.com/engine/userguide/networking/#/docker-embedded-dns-server[DNS server] on the Docker daemon.
 
 == Starting the new image
 Before we start a container with the `webserver` image we first need to start a Postgres database that will store our data for us.
@@ -68,13 +72,17 @@ Luckily, we can use an off-the-shelf image provided by https://hub.docker.com/_/
 docker run --rm --network training --name database -e POSTGRES_PASSWORD=eurostar -d postgres
 ----
 
-Use the following command to inspect the docker container network:
+****
+[TIP]
+If you want to check which containers are part of the network, you can run the command below. The output will contain a list of containers, each of which should be able to reach other based on container name.
 ----
 docker network inspect training
 ----
+****
 
 == Add data to the database
-Because you may not have a Postgres database client installed we start another container from the Postgres image to connect to the previously started container. From there we can add some data to the database to display on the webpage.
+Before we can get data from the database, we first need to put the data in of course. For that, we need a database client to connect to the Postgres database.
+Luckily, the Postgres image also contains a client! We can start another container from the Postgres image, but instead of the database, we'll start the client. From there we can connect to the previously started database container so we can add some data to the database to display on the webpage.
 
 .Connect with PSQL to the database
  docker run -it --rm --network training postgres psql -h database -U postgres
@@ -85,7 +93,7 @@ This starts a new instance of the `postgres` image in interactive mode (`-it`), 
  CREATE DATABASE eurostar;
  \c eurostar
  CREATE TABLE kv (key varchar(100) PRIMARY KEY, value varchar(100));
- INSERT INTO kv VALUES ('provider','eurostar on pg');
+ INSERT INTO kv VALUES ('provider','Now getting data from Postgres!');
  SELECT * FROM kv; -- Check that the data is really there
  \q
 

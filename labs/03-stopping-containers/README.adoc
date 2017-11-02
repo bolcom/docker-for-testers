@@ -33,7 +33,7 @@ docker ps -q
 ----
 ****
 [TIP]
-Run `docker ps --help` to find out what the `-q` flag does.
+Run `docker ps --help` to find out what the `-q` flag does exactly.
 ****
 
 By combining the output of the `ps` command with the `stop` commands we can easily stop all containers with one statement.

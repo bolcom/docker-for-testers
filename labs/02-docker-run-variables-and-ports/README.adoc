@@ -42,7 +42,7 @@ NOTE: If you are using Docker Toolbox, you can't use localhost, but have to use 
 ----
 The site should say `Hello world!`.
 ++++
-<asciinema-player src="screencast/training-webapp.json" rows="9"></asciinema-player>
+<asciinema-player src="screencast/training-webapp.json" rows="9" cols="204"></asciinema-player>
 ++++
 
 == Inspecting the logs
@@ -54,7 +54,7 @@ docker logs <container id or name>
 ----
 You should see `GET` commands on the root (/) of your webserver.
 ++++
-<asciinema-player src="screencast/get-request.json" rows="8"></asciinema-player>
+<asciinema-player src="screencast/get-request.json" rows="8" cols="204"></asciinema-player>
 ++++
 
 == Configuring containers through environment variables
