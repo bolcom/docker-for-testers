@@ -81,6 +81,9 @@ asciidoctor.doLast {
         // put the images directory in the root of the ${rootProject.name}
         from("$asciidoctorOutputDir/html5/$project.name/src/asciidoc") {
             include 'images/**/*'
+            include 'js/**/*'
+            include 'css/**/*'
+            include 'screencast/**/*'
             includeEmptyDirs false
             eachFile { FileCopyDetails details ->
                 details.path = details.relativeSourcePath
