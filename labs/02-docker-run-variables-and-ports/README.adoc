@@ -58,7 +58,7 @@ You should see `GET` commands on the root (/) of your webserver.
 ++++
 
 == Configuring containers through environment variables
-When using containers you'll want to use the same version of the container across all environments. https://sroze.io/why-i-think-we-should-all-use-immutable-docker-images-9f4fdcb5212f[This maximizes portability and predictability, window="_blank"]. But, a container running on a test environment should probably use different resources and dependencies than a container running on production.
+When using containers you'll want to use the same version of the container across all environments. https://medium.com/sroze/why-i-think-we-should-all-use-immutable-docker-images-9f4fdcb5212f[This maximizes portability and predictability, window="_blank"]. But, a container running on a test environment should probably use different resources and dependencies than a container running on production.
 
 Environment variables are an excellent way to inject this configuration. Most containers are configurable using environment variables that you can pass in at startup with the `-e` flag.
 ****
