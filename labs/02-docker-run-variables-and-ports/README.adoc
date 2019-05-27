@@ -95,8 +95,7 @@ Notice that every container has a different port assigned on the host, but all m
 
 Of course, at times you may want to have more control over the ports you are running on.
 
-Figure out how to start another `training/webapp` container mapping a specific port (80) to the exposed port of the container (5000).
+Figure out how to start another `training/webapp` container mapping a specific host port (80) to the exposed port of the container (5000).
 Afterwards you should be able to see the Hello-message on http://localhost:80[http://localhost:80,window="_blank"].
 
-NOTE: If you get stuck mapping the 5000 port of the container to port 80 of the host, start by checking the https://docs.docker.com/engine/reference/run/#/expose-incoming-ports[documentation,window="_blank"] of the run command (look at the EXPOSE section).
-
+NOTE: If you get stuck mapping the 5000 port of the container to port 80 of the host, start by checking the https://docs.docker.com/engine/reference/run/#expose-incoming-ports[documentation,window="_blank"] of the run command.

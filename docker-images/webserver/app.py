@@ -1,6 +1,7 @@
 import os
 import pgdb
 import logging
+import sys
 
 from flask import Flask
 
@@ -8,12 +9,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    conn = pgdb.connect( host='database', user='postgres', password='eurostar', database='eurostar' )
-    cur = conn.cursor()
-    cur.execute( "SELECT value FROM kv WHERE key='provider'" )
-    provider = cur.fetchone()[0]
-    conn.close()
-    return 'Hello '+provider+'!'
+    try: 
+        conn = pgdb.connect( host='database', user='postgres', password='myPassword', database='mydata' )
+        cur = conn.cursor()
+        cur.execute( "SELECT value FROM kv WHERE key='provider'" )
+        provider = cur.fetchone()[0]
+        conn.close()
+        return 'Hello '+provider+'!'
+    except: # catch *all* exceptions
+        return '<h1>An error occurred:</h1> ' + str(sys.exc_info()[1]) + '<br/><h3>Check the following:</h3> <li>which password is set on the database container? <li>is your database container named "database"? <li>is the data created correctly in the database?'
 
 if __name__ == '__main__':
     logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
