@@ -17,7 +17,7 @@ def hello():
         conn.close()
         return 'Hello '+provider+'!'
     except: # catch *all* exceptions
-        return '<h1>An error occurred:</h1> ' + str(sys.exc_info()[1]) + '<br/><h3>Check the following:</h3> <li>which password is set on the database container? <li>is your database container named "database"? <li>is the data created correctly in the database?'
+        return '<h1>An error occurred:</h1> ' + str(sys.exc_info()[1]) + '<br/><h3>Check the following:</h3> <li>Which password is set on the database container? <li>Is your database container named "database"? <li>Is the data created correctly in the database?'
 
 if __name__ == '__main__':
     logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
