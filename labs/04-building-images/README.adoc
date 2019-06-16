@@ -52,7 +52,7 @@ NOTE: Read the documentation of the build command: `docker build --help`
 
 The command should exit output similar to:
 
-    Successfull
+    Successfully built 98ac0aa0d27d 
     Successfully tagged webserver:latest
 
 == Setup a docker network
