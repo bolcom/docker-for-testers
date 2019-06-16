@@ -27,11 +27,11 @@ In order to build a Docker image yourself you need a https://docs.docker.com/eng
 . Download the https://github.com/bolcom/docker-for-testers/archive/master.zip[workshop zip file] and unzip it on your local harddisk
 . Look at the Dockerfile in the `docker-images/webserver` folder.
 
- FROM training/webapp                                             [a]
- ENV DEBIAN_FRONTEND=noninteractive                               [b]
- RUN apt-get -y update && apt-get -y install libpq-dev python-dev [c]
- RUN pip install pygresql                                         [c]
- ADD app.py /opt/webapp/app.py                                    [d]
+ [a] FROM training/webapp                                             
+ [b] ENV DEBIAN_FRONTEND=noninteractive                               
+ [c] RUN apt-get -y update && apt-get -y install libpq-dev python-dev 
+ [c] RUN pip install pygresql                                         
+ [d] ADD app.py /opt/webapp/app.py                                    
 
 Each line in the Dockerfile is explained below:
 
